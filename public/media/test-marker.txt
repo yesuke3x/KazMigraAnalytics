@@ -1,0 +1,1 @@
+deploy-probe: if you can read this, public/media/ subdirectory IS being deployed; problem is file size
