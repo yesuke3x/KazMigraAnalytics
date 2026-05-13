@@ -35,14 +35,20 @@ function copyDir(src, dst) {
   }
 }
 
-if (fs.existsSync('public')) {
-  for (const item of fs.readdirSync('public')) {
-    const s = path.join('public', item);
+for (const dir of ['public', 'media']) {
+  if (!fs.existsSync(dir)) continue;
+  if (dir === 'media') {
+    copyDir('media', path.join(DIST, 'media'));
+    console.log('copied media/ into dist/media/');
+    continue;
+  }
+  for (const item of fs.readdirSync(dir)) {
+    const s = path.join(dir, item);
     const d = path.join(DIST, item);
     if (fs.statSync(s).isDirectory()) copyDir(s, d);
     else fs.copyFileSync(s, d);
   }
-  console.log('copied public/* into dist/');
+  console.log('copied', dir + '/* into dist/');
 }
 
 console.log('Build complete:', DIST);
