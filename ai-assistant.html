@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Ассистент — KazMigra Analytics</title>
+  <meta name="description" content="AI-ассистент по миграции Казахстана. Задайте вопрос и получите аналитические ответы о миграционных потоках регионов РК." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===============================================
+       ХЕДЕР
+       =============================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>KazMigra
+      </a>
+      <nav aria-label="Основное меню">
+        <ul class="nav-links">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="analysis.html">Анализ</a></li>
+          <li><a href="visualization.html">Визуализация</a></li>
+          <li><a href="ai-assistant.html" class="active">AI Ассистент</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+    <a href="index.html">Главная</a>
+    <a href="analysis.html">Анализ</a>
+    <a href="visualization.html">Визуализация</a>
+    <a href="ai-assistant.html" class="active">AI Ассистент</a>
+    <a href="about.html">О проекте</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container page-hero-content">
+        <div class="breadcrumb fade-in">
+          <a href="index.html">Главная</a>
+          <span>›</span>
+          <span>AI Ассистент</span>
+        </div>
+        <h1 class="page-hero-title fade-in">AI Ассистент<br />по Миграции</h1>
+        <p class="page-hero-subtitle fade-in">
+          Задайте вопрос нашему AI-ассистенту о миграционных потоках
+          Казахстана и получите аналитический ответ на основе данных 2019–2023
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================
+         AI АГЕНТ — REQUIREMENT 4 + REQUIREMENT 8
+         AI CHATBOT — TIDIO INTEGRATION
+         =============================================== -->
+    <!-- AI COMPONENT: TIDIO CHATBOT INTEGRATION -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col" style="align-items:start;">
+
+          <!-- Левая колонка: описание + кнопки подсказок -->
+          <div>
+            <div class="section-tag fade-in">AI Чат-бот</div>
+            <h2 class="section-title fade-in" style="text-align:left; font-size:clamp(26px,4vw,40px); margin-bottom:20px;">
+              Задайте вопрос<br />AI-аналитику
+            </h2>
+            <p class="fade-in" style="font-size:15px; color:var(--color-text-muted); line-height:1.75; margin-bottom:28px;">
+              Наш AI-ассистент обучен на данных о миграционных
+              потоках всех 17 регионов Казахстана. Он поможет разобраться
+              в тенденциях, статистике и прогнозах.
+            </p>
+
+            <!-- Кнопки-подсказки -->
+            <div class="fade-in">
+              <div style="font-size:13px; font-weight:700; color:var(--color-text-muted); letter-spacing:0.5px; margin-bottom:14px;">
+                Популярные вопросы:
+              </div>
+              <div class="hint-btns">
+                <button class="hint-btn" onclick="setHintQuestion(this)">
+                  💬 Какой регион имеет наибольший отток?
+                </button>
+                <button class="hint-btn" onclick="setHintQuestion(this)">
+                  🏙️ Почему люди едут в Алматы?
+                </button>
+                <button class="hint-btn" onclick="setHintQuestion(this)">
+                  😷 Как COVID повлиял на миграцию?
+                </button>
+              </div>
+            </div>
+
+            <!-- Информационные карточки -->
+            <div style="display:flex; flex-direction:column; gap:14px; margin-top:32px;">
+              <div class="card fade-in" style="padding:18px 22px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:24px;">🧠</span>
+                  <div>
+                    <div style="font-size:14px; font-weight:700; color:var(--color-primary-dark); margin-bottom:3px;">На основе реальных данных</div>
+                    <div style="font-size:13px; color:var(--color-text-muted);">Статистика по 17 регионам, 2019–2023</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card fade-in fade-in-delay-1" style="padding:18px 22px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:24px;">⚡</span>
+                  <div>
+                    <div style="font-size:14px; font-weight:700; color:var(--color-primary-dark); margin-bottom:3px;">Мгновенные ответы</div>
+                    <div style="font-size:13px; color:var(--color-text-muted);">AI отвечает за секунды на любой вопрос</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card fade-in fade-in-delay-2" style="padding:18px 22px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:24px;">🇷🇺</span>
+                  <div>
+                    <div style="font-size:14px; font-weight:700; color:var(--color-primary-dark); margin-bottom:3px;">На русском языке</div>
+                    <div style="font-size:13px; color:var(--color-text-muted);">Полная поддержка русскоязычного интерфейса</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Tidio плейсхолдер + чат -->
+          <div class="fade-in fade-in-delay-1">
+            <!-- AI CHATBOT — TIDIO виджет инициализируется внизу страницы -->
+
+            <!-- Текстовый чат (демо-версия) -->
+            <div style="margin-top:24px;">
+              <div style="background:var(--color-white); border:1px solid var(--color-border);
+                          border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow-card);">
+                <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+                            color:var(--color-primary); margin-bottom:14px; display:flex; align-items:center; gap:6px;">
+                  <span style="width:6px; height:6px; background:var(--color-primary); border-radius:50; display:inline-block;
+                               border-radius:50%; animation:pulse-dot 2s infinite;"></span>
+                  Демо-режим
+                </div>
+                <!-- Чат-интерфейс -->
+                <div id="chat-messages" style="min-height:180px; max-height:240px; overflow-y:auto;
+                     display:flex; flex-direction:column; gap:10px; margin-bottom:14px; padding-right:4px;">
+                  <div style="background:var(--color-mint); border-radius:12px 12px 12px 4px;
+                               padding:12px 14px; font-size:14px; color:var(--color-text); line-height:1.55; max-width:85%;">
+                    👋 Здравствуйте! Я AI-ассистент KazMigra. Задайте мне вопрос о миграции в Казахстане.
+                    Используйте кнопки подсказок или введите свой вопрос.
+                  </div>
+                </div>
+                <!-- Поле ввода -->
+                <div style="display:flex; gap:10px;">
+                  <input type="text" id="chat-input" placeholder="Введите вопрос..."
+                         style="flex:1; padding:10px 14px; border:2px solid rgba(27,107,58,0.15);
+                                border-radius:var(--radius-md); font-size:14px; font-family:var(--font-body);
+                                outline:none; transition:border-color var(--transition);"
+                         onkeydown="if(event.key==='Enter') sendDemoMessage()"
+                         onfocus="this.style.borderColor='var(--color-primary)'"
+                         onblur="this.style.borderColor='rgba(27,107,58,0.15)'" />
+                  <button onclick="sendDemoMessage()" class="btn btn-primary btn-sm" aria-label="Отправить">➤</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         AI ПРОГНОЗЫ 2024–2025
+         =============================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">AI Прогнозирование</div>
+          <h2 class="section-title">AI Прогноз 2024–2025</h2>
+          <p class="section-subtitle">
+            Прогнозы на основе анализа трендов 2019–2023
+            с использованием методов машинного обучения
+          </p>
+        </div>
+
+        <div class="forecast-grid">
+          <!-- Прогноз 1: Внутренняя миграция -->
+          <div class="card forecast-card fade-in">
+            <div class="forecast-year">Внутренняя миграция</div>
+            <div class="forecast-title">Общий объём внутренних перемещений</div>
+            <div class="forecast-value">+4.2%</div>
+            <span class="forecast-change">↑ Рост</span>
+            <div class="forecast-desc">
+              Ожидается устойчивый рост внутренней мобильности населения.
+              Основной драйвер — продолжение урбанизации и расширение
+              рынка труда в Алматы и Астане. Прогноз: 640–660 тыс. чел./год.
+            </div>
+          </div>
+
+          <!-- Прогноз 2: Алматы -->
+          <div class="card forecast-card fade-in fade-in-delay-1">
+            <div class="forecast-year">Алматы · Приток</div>
+            <div class="forecast-title">Сальдо миграции в г. Алматы</div>
+            <div class="forecast-value">+54к</div>
+            <span class="forecast-change">↑ +3.8%</span>
+            <div class="forecast-desc">
+              Алматы сохраняет позицию главного центра притяжения.
+              Развитие IT-сектора и финансовых услуг обеспечивает стабильный
+              приток квалифицированных специалистов из регионов.
+            </div>
+          </div>
+
+          <!-- Прогноз 3: Внешняя миграция -->
+          <div class="card forecast-card fade-in fade-in-delay-2">
+            <div class="forecast-year">Внешняя миграция</div>
+            <div class="forecast-title">Нетто-миграция (международная)</div>
+            <div class="forecast-value">−2.1%</div>
+            <span class="forecast-change" style="background:rgba(192,57,43,0.1); color:#C0392B;">↓ Стабилизация</span>
+            <div class="forecast-desc">
+              Небольшое снижение эмиграции в страны СНГ и Европу.
+              Ожидается постепенное улучшение сальдо за счёт возврата
+              казахстанцев и привлечения специалистов из-за рубежа.
+            </div>
+          </div>
+        </div>
+
+        <!-- Дисклеймер -->
+        <div class="fade-in" style="margin-top:32px; padding:18px 24px;
+             background:var(--color-white); border-radius:var(--radius-md);
+             border:1px solid var(--color-border); display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:20px; flex-shrink:0;">ℹ️</span>
+          <p style="font-size:13px; color:var(--color-text-muted); line-height:1.65;">
+            <strong style="color:var(--color-primary-dark);">Примечание:</strong>
+            Прогнозы являются ориентировочными и основаны на экстраполяции трендов 2019–2023 годов.
+            Реальные показатели могут отличаться в зависимости от макроэкономических,
+            политических и демографических факторов. Источник: исследовательский проект KazMigra Analytics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+            <span class="logo-dot"></span> KazMigra
+          </a>
+          <p>Аналитическая платформа по исследованию миграционных потоков Республики Казахстан.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Авторы</h4>
+          <p>Аріпбай Арнур Бахытулы</p>
+          <p>Нуралиев Ерсултан Нурлыбекулы</p>
+          <p style="margin-top:8px;">Дисциплина: ИКТ</p>
+        </div>
+        <div class="footer-col">
+          <h4>Учреждение</h4>
+          <p>НАО «Университет Нархоз»</p>
+          <p>Школа цифровых технологий</p>
+          <p>6В06104 – Digital Management and Design</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KazMigra Analytics. Все права защищены.</p>
+        <a href="#" class="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===============================================
+       СКРИПТЫ — AI АССИСТЕНТ
+       =============================================== -->
+  <script>
+    // ---- Хедер ----
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+    // ---- Гамбургер ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // ---- Fade-in ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ---- Демо-ответы AI ----
+    const demoAnswers = {
+      "отток": "Наибольший отток населения наблюдается в <strong>Северо-Казахстанской области (СКО)</strong> — в среднем −10 200 человек в год. На втором месте — Костанайская область (−8 900 чел./год). Причины: ограниченный рынок труда, суровый климат и отток русскоязычного населения в Россию и Германию.",
+      "алматы": "<strong>Алматы</strong> является главным центром притяжения мигрантов в Казахстане по нескольким причинам: крупнейший рынок труда и бизнес-центр страны, развитая инфраструктура образования и здравоохранения, концентрация IT-компаний и финансового сектора, наиболее высокий уровень заработных плат среди всех регионов РК.",
+      "covid": "<strong>COVID-19</strong> в 2020 году резко снизил миграционную активность: внешняя миграция упала на <strong>34%</strong> по сравнению с 2019 годом (с ~42 тыс. до ~28 тыс. эмигрантов). Внутренняя миграция также снизилась на 17%. Восстановление началось в 2021 году, а 2022–2023 превысили допандемийные показатели.",
+      "регион": "Всего в Казахстане <strong>17 административных регионов</strong>, включая 3 города республиканского значения: Алматы, Астана и Шымкент. Наибольшее положительное сальдо имеют крупные города, наибольшее отрицательное — северные и восточные области.",
+      "default": "Это интересный вопрос о миграции Казахстана! 🇰🇿 Для получения детального ответа рекомендуем ознакомиться с <a href='analysis.html' style='color:var(--color-primary)'>аналитическим разделом</a> и <a href='visualization.html' style='color:var(--color-primary)'>интерактивными графиками</a> нашей платформы. Данные охватывают все 17 регионов за 2019–2023 годы."
+    };
+
+    function getAIResponse(question) {
+      const q = question.toLowerCase();
+      if (q.includes('отток') || q.includes('потер') || q.includes('убыва') || q.includes('наибольш')) return demoAnswers["отток"];
+      if (q.includes('алмат') || q.includes('почему') || q.includes('едут')) return demoAnswers["алматы"];
+      if (q.includes('covid') || q.includes('ковид') || q.includes('пандем') || q.includes('2020')) return demoAnswers["covid"];
+      if (q.includes('регион') || q.includes('обл')) return demoAnswers["регион"];
+      return demoAnswers["default"];
+    }
+
+    function addMessage(text, isUser = false) {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.style.cssText = isUser
+        ? 'background:var(--color-primary); color:#fff; border-radius:12px 12px 4px 12px; padding:10px 14px; font-size:14px; line-height:1.55; max-width:85%; align-self:flex-end; margin-left:auto;'
+        : 'background:var(--color-mint); color:var(--color-text); border-radius:12px 12px 12px 4px; padding:12px 14px; font-size:14px; line-height:1.55; max-width:85%;';
+      div.innerHTML = text;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function addTypingIndicator() {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.id = 'typing-indicator';
+      div.style.cssText = 'background:var(--color-mint); border-radius:12px; padding:12px 14px; font-size:13px; color:var(--color-text-muted); max-width:80px;';
+      div.innerHTML = '⏳ ...';
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      return div;
+    }
+
+    function sendDemoMessage() {
+      const input = document.getElementById('chat-input');
+      const q = input.value.trim();
+      if (!q) return;
+
+      addMessage(q, true);
+      input.value = '';
+
+      const typing = addTypingIndicator();
+      setTimeout(() => {
+        typing.remove();
+        addMessage('🤖 ' + getAIResponse(q));
+      }, 900 + Math.random() * 600);
+    }
+
+    function setHintQuestion(btn) {
+      const text = btn.textContent.replace(/^[^\s]*\s/, '').trim(); // убираем эмодзи
+      document.getElementById('chat-input').value = text;
+      sendDemoMessage();
+    }
+  </script>
+
+  <!-- AI MUSIC COMPONENT — SUNO AI -->
+  <div class="music-player" id="music-player" role="region" aria-label="Музыкальный плеер">
+    <div class="player-header">
+      <div class="player-icon" aria-hidden="true">🎵</div>
+      <div class="player-info">
+        <div class="player-title">Steppe Data Drift — Suno AI</div>
+        <div class="player-subtitle">Suno AI · Ambient / Казахстан</div>
+      </div>
+      <button onclick="document.getElementById('music-player').style.display='none'"
+              style="background:none;border:none;cursor:pointer;color:var(--color-text-muted);
+                     font-size:16px; padding:4px; border-radius:4px; line-height:1;"
+              aria-label="Закрыть плеер">×</button>
+    </div>
+    <div class="player-controls">
+      <button class="play-btn" id="play-btn" aria-label="Воспроизвести/пауза" onclick="togglePlay()">▶</button>
+      <div class="progress-bar-wrap" id="progress-wrap" onclick="seekAudio(event)" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="player-time" id="player-time">0:00</span>
+    </div>
+    <audio id="bg-audio" loop>
+      <source src="assets/Steppe_Data_Drift.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+  <script>
+    (function () {
+      const audio    = document.getElementById('bg-audio');
+      const playBtn  = document.getElementById('play-btn');
+      const progFill = document.getElementById('progress-fill');
+      const timeLbl  = document.getElementById('player-time');
+      const progWrap = document.getElementById('progress-wrap');
+      window.togglePlay = function () {
+        if (audio.paused) { audio.play().catch(()=>{}); playBtn.textContent = '⏸'; }
+        else { audio.pause(); playBtn.textContent = '▶'; }
+      };
+      function fmt(s){const m=Math.floor(s/60);const x=Math.floor(s%60).toString().padStart(2,'0');return m+':'+x;}
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+          progFill.style.width = (audio.currentTime/audio.duration*100)+'%';
+          timeLbl.textContent  = fmt(audio.currentTime);
+        }
+      });
+      window.seekAudio = function (e) {
+        const r = progWrap.getBoundingClientRect();
+        if (audio.duration) audio.currentTime = ((e.clientX - r.left)/r.width) * audio.duration;
+      };
+    })();
+  </script>
+  <!-- Tidio AI чат-бот -->
+  <script src="//code.tidio.co/wmvbengwk7albnj8q96wh5530tfnavk4.js" async></script>
+</body>
+</html>

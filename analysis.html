@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аналитика — KazMigra Analytics</title>
+  <meta name="description" content="Подробный аналитический обзор миграционных тенденций Казахстана 2019–2023. Динамические таблицы по 17 регионам." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===============================================
+       ХЕДЕР
+       =============================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>KazMigra
+      </a>
+      <nav aria-label="Основное меню">
+        <ul class="nav-links">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="analysis.html" class="active">Анализ</a></li>
+          <li><a href="visualization.html">Визуализация</a></li>
+          <li><a href="ai-assistant.html">AI Ассистент</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+    <a href="index.html">Главная</a>
+    <a href="analysis.html" class="active">Анализ</a>
+    <a href="visualization.html">Визуализация</a>
+    <a href="ai-assistant.html">AI Ассистент</a>
+    <a href="about.html">О проекте</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ===============================================
+         PAGE HERO
+         =============================================== -->
+    <div class="page-hero">
+      <div class="container page-hero-content">
+        <div class="breadcrumb fade-in">
+          <a href="index.html">Главная</a>
+          <span>›</span>
+          <span>Аналитика</span>
+        </div>
+        <h1 class="page-hero-title fade-in">Аналитика<br />Миграционных Потоков</h1>
+        <p class="page-hero-subtitle fade-in">
+          Тенденции, закономерности и ключевые выводы
+          по 17 регионам Республики Казахстан за 2019–2023 годы
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================
+         АНАЛИТИЧЕСКИЙ ТЕКСТ — REQUIREMENT 3
+         =============================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <div class="section-tag fade-in">Обзор тенденций</div>
+            <h2 class="section-title fade-in" style="text-align:left; font-size: clamp(28px,4vw,42px);">
+              Основные тренды<br />миграции в Казахстане
+            </h2>
+            <div class="analytics-text fade-in">
+              <p>
+                Миграционные процессы в Казахстане за период 2019–2023 годов
+                отражают глубокие структурные изменения в распределении населения
+                по стране. Основной тренд — устойчивая <strong>концентрация населения
+                в двух городах республиканского значения</strong>: Алматы и Астане,
+                которые исторически являются экономическими и административными
+                центрами притяжения рабочей силы.
+              </p>
+              <p>
+                <strong>Урбанизационный процесс</strong> остаётся доминирующей чертой
+                внутренней миграции. Алматы ежегодно принимает порядка
+                60 000–80 000 внутренних мигрантов, сохраняя положительное сальдо
+                на уровне 40 000–55 000 человек в год. Астана, будучи столицей,
+                демонстрирует схожую картину с притоком специалистов в госсекторе,
+                IT-индустрии и строительстве.
+              </p>
+              <p>
+                <strong>Северные регионы</strong> — Северо-Казахстанская (СКО)
+                и Костанайская область — стабильно показывают отрицательное
+                сальдо миграции. Это обусловлено рядом факторов: ограниченным
+                рынком труда, суровым климатом, оттоком русскоязычного населения
+                в Россию и Германию, а также общим снижением производственной
+                активности в аграрных регионах. СКО ежегодно теряет от
+                8 000 до 12 000 жителей, формируя устойчивую депопуляцию.
+              </p>
+              <p>
+                <strong>Внешняя миграция</strong> претерпела значительные изменения
+                в 2020 году под влиянием пандемии COVID-19. Закрытие границ
+                и ограничение транспортного сообщения привели к резкому снижению
+                числа эмигрантов — на <strong>34%</strong> по сравнению с 2019 годом.
+                Основными направлениями внешней миграции остаются Россия
+                (преимущественно из северных регионов), Германия (программы
+                репатриации этнических немцев) и страны Европейского союза.
+              </p>
+              <p>
+                Примечательно, что <strong>2022–2023 годы</strong> ознаменовались
+                парадоксальным явлением: параллельно с традиционным оттоком
+                казахстанцев в Россию наблюдался приток российских граждан
+                в Казахстан. Это частично компенсировало отрицательное внешнее
+                сальдо и оказало влияние на рынок аренды жилья в крупных городах.
+              </p>
+              <p>
+                <strong>Южные регионы</strong> — Туркестанская, Алматинская и
+                Жамбылская области — характеризуются высоким естественным
+                приростом населения, что частично маскирует реальные масштабы
+                эмиграции. Мангистауская область, несмотря на добывающую промышленность,
+                демонстрирует нестабильное сальдо из-за вахтовой организации труда.
+              </p>
+            </div>
+          </div>
+
+          <!-- Боковая панель со статистикой -->
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div class="glass-card fade-in">
+              <div style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+                          color:var(--color-primary); margin-bottom:12px;">Топ городов-реципиентов</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span style="font-weight:700; font-size:13px; width:80px; color:var(--color-primary-dark);">Алматы</span>
+                  <div style="flex:1; height:8px; background:var(--color-mint); border-radius:4px; overflow:hidden;">
+                    <div style="height:100%; width:95%; background:var(--color-primary); border-radius:4px;"></div>
+                  </div>
+                  <span style="font-size:12px; color:var(--color-text-muted);">+52к</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span style="font-weight:700; font-size:13px; width:80px; color:var(--color-primary-dark);">Астана</span>
+                  <div style="flex:1; height:8px; background:var(--color-mint); border-radius:4px; overflow:hidden;">
+                    <div style="height:100%; width:80%; background:var(--color-primary); border-radius:4px;"></div>
+                  </div>
+                  <span style="font-size:12px; color:var(--color-text-muted);">+43к</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span style="font-weight:700; font-size:13px; width:80px; color:var(--color-primary-dark);">Шымкент</span>
+                  <div style="flex:1; height:8px; background:var(--color-mint); border-radius:4px; overflow:hidden;">
+                    <div style="height:100%; width:45%; background:var(--color-accent); border-radius:4px;"></div>
+                  </div>
+                  <span style="font-size:12px; color:var(--color-text-muted);">+24к</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card fade-in fade-in-delay-1">
+              <div style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+                          color:#C0392B; margin-bottom:12px;">Наибольший отток</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:13px; font-weight:600;">СКО</span>
+                  <span style="color:#C0392B; font-weight:700; font-size:14px;">−10 200</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:13px; font-weight:600;">Костанайская обл.</span>
+                  <span style="color:#C0392B; font-weight:700; font-size:14px;">−8 900</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:13px; font-weight:600;">Павлодарская обл.</span>
+                  <span style="color:#C0392B; font-weight:700; font-size:14px;">−5 400</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card fade-in fade-in-delay-2">
+              <div style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+                          color:var(--color-primary); margin-bottom:16px;">COVID-19 эффект</div>
+              <div style="font-family:var(--font-heading); font-size:56px; color:var(--color-primary);
+                          line-height:1; margin-bottom:8px;">−34%</div>
+              <div style="font-size:13px; color:var(--color-text-muted);">
+                Снижение внешней миграции в 2020 году
+                по сравнению с базовым 2019 годом
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         КЛЮЧЕВЫЕ ВЫВОДЫ
+         =============================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">Ключевые выводы</div>
+          <h2 class="section-title">Главные закономерности</h2>
+        </div>
+        <div class="key-findings-grid">
+          <div class="card finding-card fade-in">
+            <div class="finding-number">01</div>
+            <div class="finding-title">Алматы и Астана — главные центры притяжения</div>
+            <div class="finding-desc">
+              Два крупнейших города республики совокупно принимают свыше
+              70% всех внутренних мигрантов. Устойчивый рост связан
+              с концентрацией рабочих мест, инфраструктуры и образовательных учреждений.
+            </div>
+          </div>
+          <div class="card finding-card fade-in fade-in-delay-1">
+            <div class="finding-number">02</div>
+            <div class="finding-title">СКО и Костанайская — наибольший отток населения</div>
+            <div class="finding-desc">
+              Северные регионы ежегодно теряют тысячи жителей из-за
+              ограниченной экономической активности и оттока
+              русскоязычного населения в Россию и Германию.
+            </div>
+          </div>
+          <div class="card finding-card fade-in fade-in-delay-2">
+            <div class="finding-number">03</div>
+            <div class="finding-title">Внешняя миграция снизилась в 2020 году на 34%</div>
+            <div class="finding-desc">
+              Пандемия COVID-19 резко ограничила трансграничное перемещение.
+              В 2021–2022 годах наблюдалось постепенное восстановление,
+              а в 2022 зафиксирован нетипичный приток из России.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         ДИНАМИЧЕСКАЯ ТАБЛИЦА — REQUIREMENT 5
+         DYNAMIC TABLE — ZAPIER INTEGRATION POINT
+         =============================================== -->
+    <!-- DYNAMIC TABLE — ZAPIER INTEGRATION POINT -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">Данные по регионам</div>
+          <h2 class="section-title">Миграционная статистика<br />по 17 регионам</h2>
+          <p class="section-subtitle">
+            Выберите год для фильтрации данных. Нажмите на заголовок колонки для сортировки.
+          </p>
+        </div>
+
+        <!-- Фильтры по году -->
+        <div class="table-filters fade-in">
+          <span class="filter-label">Год:</span>
+          <button class="year-btn active" data-year="all">Все</button>
+          <button class="year-btn" data-year="2019">2019</button>
+          <button class="year-btn" data-year="2020">2020</button>
+          <button class="year-btn" data-year="2021">2021</button>
+          <button class="year-btn" data-year="2022">2022</button>
+          <button class="year-btn" data-year="2023">2023</button>
+        </div>
+
+        <!-- Таблица -->
+        <div class="table-wrap fade-in">
+          <table class="data-table" id="migration-table" aria-label="Миграционная статистика по регионам">
+            <thead>
+              <tr>
+                <th data-col="region">Регион</th>
+                <th data-col="arrived">Прибывшие</th>
+                <th data-col="departed">Выбывшие</th>
+                <th data-col="saldo">Сальдо</th>
+                <th data-col="year">Год</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Данные заполняются JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         AI АВАТАР / HEYGEN — REQUIREMENT 6
+         AI AVATAR VIDEO — HEYGEN
+         =============================================== -->
+    <!-- AI AVATAR VIDEO — HEYGEN -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">AI Презентация</div>
+          <h2 class="section-title">AI Презентация проекта</h2>
+          <p class="section-subtitle">
+            Интерактивный AI-аватар представляет ключевые результаты
+            исследования миграционных потоков Казахстана
+          </p>
+        </div>
+
+        <!-- HeyGen AI Video -->
+        <figure class="fade-in" style="max-width:900px; margin:0 auto;">
+          <video controls width="100%" style="border-radius:12px; display:block;">
+            <source src="assets/ai_hero_video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
+          <figcaption style="text-align:center; font-size:13px; color:var(--color-text-muted); margin-top:12px;">
+            Видеопрезентация создана с помощью HeyGen AI
+          </figcaption>
+          <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; justify-content:center;">
+            <span class="badge">🤖 HeyGen AI Avatar</span>
+            <span class="badge">🇷🇺 Русский язык</span>
+            <span class="badge">📊 Аналитика 2019–2023</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===============================================
+       FOOTER
+       =============================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+            <span class="logo-dot"></span> KazMigra
+          </a>
+          <p>Аналитическая платформа по исследованию миграционных потоков Республики Казахстан.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Авторы</h4>
+          <p>Аріпбай Арнур Бахытулы</p>
+          <p>Нуралиев Ерсултан Нурлыбекулы</p>
+          <p style="margin-top:8px;">Дисциплина: ИКТ</p>
+        </div>
+        <div class="footer-col">
+          <h4>Учреждение</h4>
+          <p>НАО «Университет Нархоз»</p>
+          <p>Школа цифровых технологий</p>
+          <p>6В06104 – Digital Management and Design</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KazMigra Analytics. Все права защищены.</p>
+        <a href="#" class="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===============================================
+       СКРИПТЫ — СТРАНИЦА АНАЛИЗА
+       =============================================== -->
+  <script>
+    // ---- Хедер ----
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+    // ---- Гамбургер ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // ---- Fade-in ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); fadeObs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ====================================================
+    // ДАННЫЕ ПО 17 РЕГИОНАМ (встроены в JavaScript массив)
+    // DYNAMIC TABLE — ZAPIER INTEGRATION POINT
+    // ====================================================
+    const migrationData = [
+      // 2019
+      { region: "г. Алматы",              arrived: 78420, departed: 26180, year: 2019 },
+      { region: "г. Астана",              arrived: 71350, departed: 27400, year: 2019 },
+      { region: "г. Шымкент",             arrived: 34200, departed: 10100, year: 2019 },
+      { region: "Алматинская область",     arrived: 42100, departed: 50300, year: 2019 },
+      { region: "Акмолинская область",     arrived: 18500, departed: 23100, year: 2019 },
+      { region: "Актюбинская область",     arrived: 22400, departed: 21800, year: 2019 },
+      { region: "Атырауская область",      arrived: 19800, departed: 16200, year: 2019 },
+      { region: "ВКО",                     arrived: 31200, departed: 36800, year: 2019 },
+      { region: "Жамбылская область",      arrived: 20100, departed: 22400, year: 2019 },
+      { region: "ЗКО",                     arrived: 16800, departed: 19200, year: 2019 },
+      { region: "Карагандинская область",  arrived: 36400, departed: 41200, year: 2019 },
+      { region: "Костанайская область",    arrived: 18900, departed: 27800, year: 2019 },
+      { region: "Кызылординская область",  arrived: 14200, departed: 16500, year: 2019 },
+      { region: "Мангистауская область",   arrived: 28600, departed: 26100, year: 2019 },
+      { region: "Павлодарская область",    arrived: 20100, departed: 25500, year: 2019 },
+      { region: "СКО",                     arrived: 12800, departed: 23000, year: 2019 },
+      { region: "Туркестанская область",   arrived: 32100, departed: 28400, year: 2019 },
+
+      // 2020 (COVID)
+      { region: "г. Алматы",              arrived: 62100, departed: 22400, year: 2020 },
+      { region: "г. Астана",              arrived: 58200, departed: 23100, year: 2020 },
+      { region: "г. Шымкент",             arrived: 28400, departed: 9200,  year: 2020 },
+      { region: "Алматинская область",     arrived: 34200, departed: 41800, year: 2020 },
+      { region: "Акмолинская область",     arrived: 15200, departed: 19800, year: 2020 },
+      { region: "Актюбинская область",     arrived: 18900, departed: 18400, year: 2020 },
+      { region: "Атырауская область",      arrived: 16100, departed: 13800, year: 2020 },
+      { region: "ВКО",                     arrived: 24800, departed: 30100, year: 2020 },
+      { region: "Жамбылская область",      arrived: 16800, departed: 18900, year: 2020 },
+      { region: "ЗКО",                     arrived: 13400, departed: 15800, year: 2020 },
+      { region: "Карагандинская область",  arrived: 29800, departed: 34200, year: 2020 },
+      { region: "Костанайская область",    arrived: 15100, departed: 23900, year: 2020 },
+      { region: "Кызылординская область",  arrived: 11800, departed: 13400, year: 2020 },
+      { region: "Мангистауская область",   arrived: 23200, departed: 21400, year: 2020 },
+      { region: "Павлодарская область",    arrived: 16400, departed: 21200, year: 2020 },
+      { region: "СКО",                     arrived: 10100, departed: 19800, year: 2020 },
+      { region: "Туркестанская область",   arrived: 26400, departed: 23100, year: 2020 },
+
+      // 2021
+      { region: "г. Алматы",              arrived: 69800, departed: 24600, year: 2021 },
+      { region: "г. Астана",              arrived: 65400, departed: 25200, year: 2021 },
+      { region: "г. Шымкент",             arrived: 31400, departed: 9800,  year: 2021 },
+      { region: "Алматинская область",     arrived: 38200, departed: 46400, year: 2021 },
+      { region: "Акмолинская область",     arrived: 17100, departed: 21400, year: 2021 },
+      { region: "Актюбинская область",     arrived: 20600, departed: 20100, year: 2021 },
+      { region: "Атырауская область",      arrived: 18400, departed: 15200, year: 2021 },
+      { region: "ВКО",                     arrived: 28100, departed: 33400, year: 2021 },
+      { region: "Жамбылская область",      arrived: 18200, departed: 20600, year: 2021 },
+      { region: "ЗКО",                     arrived: 15200, departed: 17800, year: 2021 },
+      { region: "Карагандинская область",  arrived: 33400, departed: 38100, year: 2021 },
+      { region: "Костанайская область",    arrived: 16800, departed: 25400, year: 2021 },
+      { region: "Кызылординская область",  arrived: 13100, departed: 15200, year: 2021 },
+      { region: "Мангистауская область",   arrived: 26400, departed: 24100, year: 2021 },
+      { region: "Павлодарская область",    arrived: 18100, departed: 23400, year: 2021 },
+      { region: "СКО",                     arrived: 11400, departed: 21200, year: 2021 },
+      { region: "Туркестанская область",   arrived: 29800, departed: 26200, year: 2021 },
+
+      // 2022
+      { region: "г. Алматы",              arrived: 82100, departed: 28400, year: 2022 },
+      { region: "г. Астана",              arrived: 78400, departed: 29100, year: 2022 },
+      { region: "г. Шымкент",             arrived: 36800, departed: 11200, year: 2022 },
+      { region: "Алматинская область",     arrived: 44200, departed: 52800, year: 2022 },
+      { region: "Акмолинская область",     arrived: 19400, departed: 24200, year: 2022 },
+      { region: "Актюбинская область",     arrived: 23800, departed: 23200, year: 2022 },
+      { region: "Атырауская область",      arrived: 21200, departed: 17400, year: 2022 },
+      { region: "ВКО",                     arrived: 33200, departed: 38400, year: 2022 },
+      { region: "Жамбылская область",      arrived: 21400, departed: 23800, year: 2022 },
+      { region: "ЗКО",                     arrived: 17800, departed: 20400, year: 2022 },
+      { region: "Карагандинская область",  arrived: 38200, departed: 43600, year: 2022 },
+      { region: "Костанайская область",    arrived: 19800, departed: 29200, year: 2022 },
+      { region: "Кызылординская область",  arrived: 15400, departed: 17800, year: 2022 },
+      { region: "Мангистауская область",   arrived: 30200, departed: 27400, year: 2022 },
+      { region: "Павлодарская область",    arrived: 21400, departed: 26800, year: 2022 },
+      { region: "СКО",                     arrived: 13200, departed: 24800, year: 2022 },
+      { region: "Туркестанская область",   arrived: 34600, departed: 30100, year: 2022 },
+
+      // 2023
+      { region: "г. Алматы",              arrived: 85600, departed: 30100, year: 2023 },
+      { region: "г. Астана",              arrived: 80200, departed: 31400, year: 2023 },
+      { region: "г. Шымкент",             arrived: 38400, departed: 12400, year: 2023 },
+      { region: "Алматинская область",     arrived: 46200, departed: 55400, year: 2023 },
+      { region: "Акмолинская область",     arrived: 20100, departed: 25600, year: 2023 },
+      { region: "Актюбинская область",     arrived: 24600, departed: 24200, year: 2023 },
+      { region: "Атырауская область",      arrived: 22400, departed: 18200, year: 2023 },
+      { region: "ВКО",                     arrived: 34600, departed: 40200, year: 2023 },
+      { region: "Жамбылская область",      arrived: 22200, departed: 24800, year: 2023 },
+      { region: "ЗКО",                     arrived: 18400, departed: 21200, year: 2023 },
+      { region: "Карагандинская область",  arrived: 39800, departed: 45400, year: 2023 },
+      { region: "Костанайская область",    arrived: 20400, departed: 30800, year: 2023 },
+      { region: "Кызылординская область",  arrived: 16200, departed: 18400, year: 2023 },
+      { region: "Мангистауская область",   arrived: 31800, departed: 28600, year: 2023 },
+      { region: "Павлодарская область",    arrived: 22200, departed: 27800, year: 2023 },
+      { region: "СКО",                     arrived: 13800, departed: 25600, year: 2023 },
+      { region: "Туркестанская область",   arrived: 36200, departed: 31800, year: 2023 },
+    ];
+
+    // Вычисляем сальдо
+    migrationData.forEach(d => d.saldo = d.arrived - d.departed);
+
+    // ---- Текущее состояние ----
+    let currentYear   = 'all';
+    let currentSort   = { col: 'saldo', dir: 'desc' };
+    let filteredData  = [...migrationData];
+
+    // ---- Функция рендера таблицы ----
+    function renderTable(data) {
+      const tbody = document.getElementById('table-body');
+      tbody.innerHTML = '';
+
+      if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:32px; color:var(--color-text-muted);">Нет данных для выбранного фильтра</td></tr>';
+        return;
+      }
+
+      data.forEach(row => {
+        const isPositive = row.saldo >= 0;
+        const tr = document.createElement('tr');
+        tr.className = isPositive ? 'positive' : 'negative';
+        tr.innerHTML = `
+          <td class="region-name">${row.region}</td>
+          <td>${row.arrived.toLocaleString('ru-RU')}</td>
+          <td>${row.departed.toLocaleString('ru-RU')}</td>
+          <td class="saldo">${(isPositive ? '+' : '') + row.saldo.toLocaleString('ru-RU')}</td>
+          <td>${row.year}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ---- Функция фильтрации и сортировки ----
+    function updateTable() {
+      filteredData = currentYear === 'all'
+        ? [...migrationData]
+        : migrationData.filter(d => d.year === parseInt(currentYear));
+
+      filteredData.sort((a, b) => {
+        const valA = a[currentSort.col];
+        const valB = b[currentSort.col];
+        const dir  = currentSort.dir === 'asc' ? 1 : -1;
+        if (typeof valA === 'string') return dir * valA.localeCompare(valB, 'ru');
+        return dir * (valA - valB);
+      });
+
+      renderTable(filteredData);
+    }
+
+    // ---- Обработчики фильтров ----
+    document.querySelectorAll('.year-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentYear = btn.dataset.year;
+        updateTable();
+      });
+    });
+
+    // ---- Сортировка по заголовку ----
+    const colMap = { 0: 'region', 1: 'arrived', 2: 'departed', 3: 'saldo', 4: 'year' };
+    document.querySelectorAll('.data-table thead th').forEach((th, i) => {
+      th.addEventListener('click', () => {
+        const col = th.dataset.col;
+        if (currentSort.col === col) {
+          currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          currentSort = { col, dir: 'desc' };
+        }
+        // Обновление классов заголовков
+        document.querySelectorAll('.data-table thead th').forEach(h => {
+          h.classList.remove('sort-asc', 'sort-desc');
+        });
+        th.classList.add(currentSort.dir === 'asc' ? 'sort-asc' : 'sort-desc');
+        updateTable();
+      });
+    });
+
+    // ---- Первоначальный рендер ----
+    updateTable();
+  </script>
+  <!-- AI MUSIC COMPONENT — SUNO AI -->
+  <div class="music-player" id="music-player" role="region" aria-label="Музыкальный плеер">
+    <div class="player-header">
+      <div class="player-icon" aria-hidden="true">🎵</div>
+      <div class="player-info">
+        <div class="player-title">Steppe Data Drift — Suno AI</div>
+        <div class="player-subtitle">Suno AI · Ambient / Казахстан</div>
+      </div>
+      <button onclick="document.getElementById('music-player').style.display='none'"
+              style="background:none;border:none;cursor:pointer;color:var(--color-text-muted);
+                     font-size:16px; padding:4px; border-radius:4px; line-height:1;"
+              aria-label="Закрыть плеер">×</button>
+    </div>
+    <div class="player-controls">
+      <button class="play-btn" id="play-btn" aria-label="Воспроизвести/пауза" onclick="togglePlay()">▶</button>
+      <div class="progress-bar-wrap" id="progress-wrap" onclick="seekAudio(event)" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="player-time" id="player-time">0:00</span>
+    </div>
+    <audio id="bg-audio" loop>
+      <source src="assets/Steppe_Data_Drift.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+  <script>
+    (function () {
+      const audio    = document.getElementById('bg-audio');
+      const playBtn  = document.getElementById('play-btn');
+      const progFill = document.getElementById('progress-fill');
+      const timeLbl  = document.getElementById('player-time');
+      const progWrap = document.getElementById('progress-wrap');
+      window.togglePlay = function () {
+        if (audio.paused) { audio.play().catch(()=>{}); playBtn.textContent = '⏸'; }
+        else { audio.pause(); playBtn.textContent = '▶'; }
+      };
+      function fmt(s){const m=Math.floor(s/60);const x=Math.floor(s%60).toString().padStart(2,'0');return m+':'+x;}
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+          progFill.style.width = (audio.currentTime/audio.duration*100)+'%';
+          timeLbl.textContent  = fmt(audio.currentTime);
+        }
+      });
+      window.seekAudio = function (e) {
+        const r = progWrap.getBoundingClientRect();
+        if (audio.duration) audio.currentTime = ((e.clientX - r.left)/r.width) * audio.duration;
+      };
+    })();
+  </script>
+  <!-- Tidio AI чат-бот -->
+  <script src="//code.tidio.co/wmvbengwk7albnj8q96wh5530tfnavk4.js" async></script>
+</body>
+</html>

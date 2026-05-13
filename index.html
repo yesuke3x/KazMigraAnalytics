@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KazMigra Analytics — Анализ миграционных потоков Казахстана</title>
+  <meta name="description" content="Интерактивный анализ и визуализация внутренних и внешних миграционных потоков по всем 17 регионам Казахстана (2019–2023)" />
+  <meta name="keywords" content="миграция Казахстан, аналитика, миграционные потоки, регионы РК, урбанизация, демография" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KazMigra Analytics — Анализ миграционных потоков Казахстана" />
+  <meta property="og:description" content="Интерактивная аналитическая платформа о миграции в Казахстане 2019–2023" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1509099863731-ef4bff19e808?w=1200&h=630&fit=crop" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KazMigra Analytics" />
+  <meta name="twitter:description" content="Анализ миграционных потоков по 17 регионам Казахстана" />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1509099863731-ef4bff19e808?w=1200&h=630&fit=crop" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Дополнительные стили только для главной страницы */
+    .hero-deco {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 45%;
+      background: linear-gradient(160deg, rgba(27,107,58,0.07) 0%, rgba(27,107,58,0.02) 100%);
+      clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+      z-index: 1;
+    }
+    .hero-deco-lines {
+      position: absolute;
+      right: 60px; top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hero-deco-lines span {
+      display: block;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--color-primary));
+      opacity: 0.3;
+    }
+    @media (max-width: 860px) {
+      .hero-deco { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===============================================
+       ХЕДЕР — НАВИГАЦИЯ
+       =============================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <!-- Логотип -->
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        KazMigra
+      </a>
+
+      <!-- Навигация (десктоп) -->
+      <nav aria-label="Основное меню">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="analysis.html">Анализ</a></li>
+          <li><a href="visualization.html">Визуализация</a></li>
+          <li><a href="ai-assistant.html">AI Ассистент</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+
+      <!-- Гамбургер (мобильный) -->
+      <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+    <a href="index.html" class="active">Главная</a>
+    <a href="analysis.html">Анализ</a>
+    <a href="visualization.html">Визуализация</a>
+    <a href="ai-assistant.html">AI Ассистент</a>
+    <a href="about.html">О проекте</a>
+  </nav>
+
+  <!-- ===============================================
+       HERO СЕКЦИЯ
+       =============================================== -->
+  <section class="hero">
+    <!-- Анимированные частицы (Canvas) -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- Декоративный блок справа -->
+    <div class="hero-deco" aria-hidden="true">
+      <div class="hero-deco-lines">
+        <span style="width:220px"></span>
+        <span style="width:160px"></span>
+        <span style="width:280px"></span>
+        <span style="width:120px"></span>
+        <span style="width:200px"></span>
+        <span style="width:180px"></span>
+        <span style="width:240px"></span>
+      </div>
+    </div>
+
+    <!-- Контент Hero -->
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span></span>
+          Казахстан · 2019–2023 · 17 регионов
+        </div>
+        <h1 class="hero-title">
+          Миграционные<br />
+          <em>Потоки</em><br />
+          Казахстана
+        </h1>
+        <p class="hero-subtitle">
+          Интерактивный анализ и визуализация внутренних и внешних
+          миграционных потоков по всем регионам Республики Казахстан
+        </p>
+        <div class="hero-actions">
+          <a href="analysis.html" class="btn btn-primary">
+            📊 Изучить данные
+          </a>
+          <a href="visualization.html" class="btn btn-outline">
+            📈 Смотреть графики
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Скролл-индикатор -->
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Прокрутить</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===============================================
+       СЕКЦИЯ СТАТИСТИКИ (4 glassmorphism карточки)
+       =============================================== -->
+  <section class="section" style="padding-top: 72px; padding-bottom: 72px;">
+    <div class="container">
+      <div class="stats-grid">
+        <!-- Карточка 1 -->
+        <div class="glass-card stat-card fade-in">
+          <div class="stat-icon">🧑‍🤝‍🧑</div>
+          <div class="stat-value" data-count="2847000" data-suffix="+">0</div>
+          <div class="stat-label">Всего мигрантов</div>
+        </div>
+        <!-- Карточка 2 -->
+        <div class="glass-card stat-card fade-in fade-in-delay-1">
+          <div class="stat-icon">🗺️</div>
+          <div class="stat-value" data-count="17" data-suffix="">0</div>
+          <div class="stat-label">Регионов РК</div>
+        </div>
+        <!-- Карточка 3 -->
+        <div class="glass-card stat-card fade-in fade-in-delay-2">
+          <div class="stat-icon">📅</div>
+          <div class="stat-value" data-count="5" data-suffix=" лет">0</div>
+          <div class="stat-label">Лет данных: 2019–2023</div>
+        </div>
+        <!-- Карточка 4 -->
+        <div class="glass-card stat-card fade-in fade-in-delay-3">
+          <div class="stat-icon">📁</div>
+          <div class="stat-value" data-count="12" data-suffix="">0</div>
+          <div class="stat-label">Источников данных</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="divider"></div>
+  </div>
+
+  <!-- ===============================================
+       СЕКЦИЯ ОБЗОРА
+       =============================================== -->
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="two-col">
+        <div class="fade-in">
+          <div class="section-tag">О проекте</div>
+          <h2 class="section-title" style="text-align:left; margin-bottom: 24px;">
+            Комплексный анализ<br />миграции в РК
+          </h2>
+          <p style="font-size: 16px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 24px;">
+            Платформа <strong>KazMigra Analytics</strong> — это аналитический инструмент для
+            изучения миграционных процессов в Казахстане. Мы агрегируем данные
+            из официальных источников и предоставляем удобные визуализации
+            для исследователей, студентов и органов государственного управления.
+          </p>
+          <p style="font-size: 16px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 32px;">
+            Исследование охватывает период <strong>2019–2023 годов</strong> и включает
+            анализ внутренней и внешней миграции по всем <strong>17 регионам</strong> Республики
+            Казахстан, включая три города республиканского значения.
+          </p>
+          <a href="about.html" class="btn btn-outline">Подробнее о методологии</a>
+        </div>
+        <div class="fade-in fade-in-delay-1">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <span style="font-size:28px;">🏙️</span>
+                <div>
+                  <div style="font-size:15px; font-weight:700; color:var(--color-primary-dark); margin-bottom:4px;">Урбанизация</div>
+                  <div style="font-size:13px; color:var(--color-text-muted);">Алматы и Астана — главные центры притяжения внутренних мигрантов</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <span style="font-size:28px;">📉</span>
+                <div>
+                  <div style="font-size:15px; font-weight:700; color:var(--color-primary-dark); margin-bottom:4px;">Отток с севера</div>
+                  <div style="font-size:13px; color:var(--color-text-muted);">СКО и Костанайская область — наибольшее отрицательное сальдо</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <span style="font-size:28px;">🌍</span>
+                <div>
+                  <div style="font-size:15px; font-weight:700; color:var(--color-primary-dark); margin-bottom:4px;">Внешняя миграция</div>
+                  <div style="font-size:13px; color:var(--color-text-muted);">Основные направления: Россия, Германия, другие страны СНГ</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <span style="font-size:28px;">😷</span>
+                <div>
+                  <div style="font-size:15px; font-weight:700; color:var(--color-primary-dark); margin-bottom:4px;">Влияние COVID-19</div>
+                  <div style="font-size:13px; color:var(--color-text-muted);">2020 год: снижение внешней миграции на 34% из-за пандемии</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===============================================
+       AI ГАЛЕРЕЯ — REQUIREMENT 2
+       AI COMPONENT: HIGGSFIELD AI GALLERY
+       =============================================== -->
+  <!-- AI COMPONENT: HIGGSFIELD AI IMAGE GALLERY -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">AI Галерея</div>
+        <h2 class="section-title">Визуальные образы<br />Миграции Казахстана</h2>
+        <p class="section-subtitle">
+          Художественные интерпретации миграционных потоков,
+          созданные с помощью искусственного интеллекта
+        </p>
+      </div>
+
+      <div class="ai-gallery-grid">
+        <!-- AI Изображение 1 -->
+        <figure class="ai-img-card fade-in" style="padding:0; overflow:hidden;">
+          <img src="assets/Gemini_Generated_Image_4fdlg24fdlg24fdl.png" alt="Городская миграция · Алматы"
+               style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+          <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+            Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+            <small style="font-size:11px; opacity:0.7;">Городская миграция · Алматы</small>
+          </figcaption>
+        </figure>
+        <!-- AI Изображение 2 -->
+        <figure class="ai-img-card fade-in fade-in-delay-1" style="padding:0; overflow:hidden;">
+          <img src="assets/Gemini_Generated_Image_avjrxoavjrxoavjr.png" alt="Внутренние потоки · Степь"
+               style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+          <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+            Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+            <small style="font-size:11px; opacity:0.7;">Внутренние потоки · Степь</small>
+          </figcaption>
+        </figure>
+        <!-- AI Изображение 3 -->
+        <figure class="ai-img-card fade-in fade-in-delay-2" style="padding:0; overflow:hidden;">
+          <img src="assets/Gemini_Generated_Image_g9s1iqg9s1iqg9s1.png" alt="Астана · Центр притяжения"
+               style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+          <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+            Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+            <small style="font-size:11px; opacity:0.7;">Астана · Центр притяжения</small>
+          </figcaption>
+        </figure>
+        <!-- AI Изображение 4 -->
+        <figure class="ai-img-card fade-in fade-in-delay-3" style="padding:0; overflow:hidden;">
+          <img src="assets/Gemini_Generated_Image_kl0mvmkl0mvmkl0m.png" alt="Внешняя миграция · 2019–2023"
+               style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+          <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+            Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+            <small style="font-size:11px; opacity:0.7;">Внешняя миграция · 2019–2023</small>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Подпись -->
+      <p class="ai-caption fade-in">
+        Изображения сгенерированы с помощью <strong>Higgsfield AI</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===============================================
+       CTA СЕКЦИЯ
+       =============================================== -->
+  <section class="section">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, var(--color-primary-dark) 0%, #1a5e32 100%);
+                  border-radius: var(--radius-xl);
+                  padding: 64px 56px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 32px;
+                  flex-wrap: wrap;
+                  position: relative;
+                  overflow: hidden;"
+           class="fade-in">
+        <div style="position:absolute; right:-60px; top:-60px; width:250px; height:250px;
+                    background: rgba(255,255,255,0.04); border-radius:50%;"></div>
+        <div style="position:absolute; right:80px; bottom:-80px; width:200px; height:200px;
+                    background: rgba(255,255,255,0.03); border-radius:50%;"></div>
+        <div style="position:relative; max-width:520px;">
+          <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,44px);
+                      color:#fff; letter-spacing:0.5px; margin-bottom:14px; line-height:1.1;">
+            Готовы изучить данные о миграции?
+          </h2>
+          <p style="font-size:15px; color:rgba(255,255,255,0.65); line-height:1.7;">
+            Погрузитесь в интерактивные таблицы, графики и AI-аналитику
+            по всем 17 регионам Республики Казахстан
+          </p>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; position:relative;">
+          <a href="analysis.html" class="btn" style="background:#fff; color:var(--color-primary-dark);">
+            📊 Открыть анализ
+          </a>
+          <a href="ai-assistant.html" class="btn" style="background:rgba(255,255,255,0.12);
+             color:#fff; border:1px solid rgba(255,255,255,0.25);">
+            🤖 AI Ассистент
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===============================================
+       FOOTER
+       =============================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+            <span class="logo-dot"></span> KazMigra
+          </a>
+          <p>
+            Аналитическая платформа по исследованию миграционных потоков
+            в Республике Казахстан. Учебно-исследовательский проект.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Авторы</h4>
+          <p>Аріпбай Арнур Бахытулы</p>
+          <p>Нуралиев Ерсултан Нурлыбекулы</p>
+          <p style="margin-top:8px;">Дисциплина: ИКТ</p>
+        </div>
+        <div class="footer-col">
+          <h4>Учреждение</h4>
+          <p>НАО «Университет Нархоз»</p>
+          <p>Школа цифровых технологий</p>
+          <p>6В06104 – Digital Management</p>
+          <p>and Design</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KazMigra Analytics. Все права защищены.</p>
+        <a href="#" class="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===============================================
+       AI MUSIC COMPONENT — SUNO AI
+       =============================================== -->
+  <!-- AI MUSIC COMPONENT — SUNO AI -->
+  <div class="music-player" id="music-player" role="region" aria-label="Музыкальный плеер">
+    <div class="player-header">
+      <div class="player-icon" aria-hidden="true">🎵</div>
+      <div class="player-info">
+        <div class="player-title">Steppe Data Drift — Suno AI</div>
+        <div class="player-subtitle">Suno AI · Ambient / Казахстан</div>
+      </div>
+      <!-- Кнопка скрытия плеера -->
+      <button onclick="document.getElementById('music-player').style.display='none'"
+              style="background:none;border:none;cursor:pointer;color:var(--color-text-muted);
+                     font-size:16px; padding:4px; border-radius:4px; line-height:1;"
+              aria-label="Закрыть плеер">×</button>
+    </div>
+    <div class="player-controls">
+      <button class="play-btn" id="play-btn" aria-label="Воспроизвести/пауза" onclick="togglePlay()">▶</button>
+      <div class="progress-bar-wrap" id="progress-wrap" onclick="seekAudio(event)" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="player-time" id="player-time">0:00</span>
+    </div>
+    <!-- audio тег с фоновой музыкой -->
+    <audio id="bg-audio" loop>
+      <source src="assets/Steppe_Data_Drift.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <!-- ===============================================
+       СКРИПТЫ — ГЛАВНАЯ СТРАНИЦА
+       =============================================== -->
+  <script>
+    // ---- Хедер: тень при скролле ----
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ---- Гамбургер меню ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // ---- Intersection Observer: fade-in анимации ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ---- Счётчики (count-up анимация) ----
+    function animateCounter(el) {
+      const target   = parseInt(el.dataset.count);
+      const suffix   = el.dataset.suffix || '';
+      const duration = 2000;
+      const step     = 16;
+      const increment = target / (duration / step);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        // Форматирование числа с пробелами
+        const formatted = Math.floor(current).toLocaleString('ru-RU');
+        el.textContent = formatted + suffix;
+      }, step);
+    }
+
+    // Запуск счётчиков при появлении в viewport
+    const statEls = document.querySelectorAll('.stat-value[data-count]');
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          statObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(el => statObs.observe(el));
+
+    // ---- Canvas частицы (hero) ----
+    (function initParticles() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx    = canvas.getContext('2d');
+      let W, H, particles = [], connections = [];
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      // Создание частиц
+      function createParticles(count) {
+        particles = [];
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x:  Math.random() * W,
+            y:  Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6,
+            r:  Math.random() * 2.5 + 1,
+            alpha: Math.random() * 0.5 + 0.2
+          });
+        }
+      }
+      createParticles(90);
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        // Соединительные линии (как миграционные потоки)
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(27,107,58,${0.12 * (1 - dist/110)})`;
+              ctx.lineWidth   = 0.8;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Рисование частиц
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(27,107,58,${p.alpha})`;
+          ctx.fill();
+
+          // Движение
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Границы
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
+        });
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // ---- Музыкальный плеер ----
+    const audio    = document.getElementById('bg-audio');
+    const playBtn  = document.getElementById('play-btn');
+    const progFill = document.getElementById('progress-fill');
+    const timeLbl  = document.getElementById('player-time');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+        playBtn.textContent = '⏸';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    }
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        progFill.style.width = pct + '%';
+        timeLbl.textContent  = formatTime(audio.currentTime);
+      }
+    });
+
+    function seekAudio(e) {
+      const rect = document.getElementById('progress-wrap').getBoundingClientRect();
+      const pct  = (e.clientX - rect.left) / rect.width;
+      if (audio.duration) audio.currentTime = pct * audio.duration;
+    }
+  </script>
+
+  <!-- Tidio AI чат-бот -->
+  <script src="//code.tidio.co/wmvbengwk7albnj8q96wh5530tfnavk4.js" async></script>
+</body>
+</html>

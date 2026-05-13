@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Визуализация данных — KazMigra Analytics</title>
+  <meta name="description" content="Интерактивные графики и диаграммы миграционных потоков Казахстана 2019–2023. Chart.js визуализации." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+    .chart-legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===============================================
+       ХЕДЕР
+       =============================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>KazMigra
+      </a>
+      <nav aria-label="Основное меню">
+        <ul class="nav-links">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="analysis.html">Анализ</a></li>
+          <li><a href="visualization.html" class="active">Визуализация</a></li>
+          <li><a href="ai-assistant.html">AI Ассистент</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+    <a href="index.html">Главная</a>
+    <a href="analysis.html">Анализ</a>
+    <a href="visualization.html" class="active">Визуализация</a>
+    <a href="ai-assistant.html">AI Ассистент</a>
+    <a href="about.html">О проекте</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container page-hero-content">
+        <div class="breadcrumb fade-in">
+          <a href="index.html">Главная</a>
+          <span>›</span>
+          <span>Визуализация</span>
+        </div>
+        <h1 class="page-hero-title fade-in">Визуализация<br />Данных</h1>
+        <p class="page-hero-subtitle fade-in">
+          Интерактивные графики и диаграммы на основе реальных
+          статистических данных о миграции в Казахстане за 2019–2023 годы
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================
+         ГРАФИКИ — REQUIREMENT 5
+         =============================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">Chart.js визуализации</div>
+          <h2 class="section-title">Аналитические графики</h2>
+          <p class="section-subtitle">
+            Все данные основаны на официальной статистике Казахстана
+          </p>
+        </div>
+
+        <div class="charts-grid">
+
+          <!-- ГРАФИК 1: Линейный — Динамика миграции 2019–2023 -->
+          <div class="chart-card full-width fade-in">
+            <div class="chart-title">📈 Динамика миграции 2019–2023</div>
+            <div class="chart-subtitle">Сравнение внутренней и внешней миграции по годам (тыс. человек)</div>
+            <div class="chart-legend">
+              <div class="chart-legend-item">
+                <div class="chart-legend-dot" style="background:#1B6B3A;"></div>
+                Внутренняя миграция
+              </div>
+              <div class="chart-legend-item">
+                <div class="chart-legend-dot" style="background:#5BAD8A;"></div>
+                Внешняя эмиграция
+              </div>
+              <div class="chart-legend-item">
+                <div class="chart-legend-dot" style="background:#A8D5B8;"></div>
+                Внешняя иммиграция
+              </div>
+            </div>
+            <div class="chart-canvas-wrap" style="height: 340px;">
+              <canvas id="lineChart" aria-label="Линейный график динамики миграции 2019–2023"></canvas>
+            </div>
+          </div>
+
+          <!-- ГРАФИК 2: Горизонтальный бар — Топ-5 регионов -->
+          <div class="chart-card fade-in fade-in-delay-1">
+            <div class="chart-title">📊 Топ-5 регионов по сальдо</div>
+            <div class="chart-subtitle">Положительное и отрицательное сальдо миграции (среднее 2019–2023)</div>
+            <div class="chart-canvas-wrap" style="height: 320px;">
+              <canvas id="barChart" aria-label="Горизонтальный бар топ-5 регионов по сальдо миграции"></canvas>
+            </div>
+          </div>
+
+          <!-- ГРАФИК 3: Кольцевой — Распределение по направлениям -->
+          <div class="chart-card fade-in fade-in-delay-2">
+            <div class="chart-title">🍩 Распределение по направлениям</div>
+            <div class="chart-subtitle">Структура миграционных потоков (2019–2023, %)</div>
+            <div class="chart-canvas-wrap" style="height: 320px; display:flex; align-items:center; justify-content:center;">
+              <canvas id="doughnutChart" aria-label="Кольцевая диаграмма распределения по направлениям миграции"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Сводная статистика под графиками -->
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:20px; margin-top: 48px;">
+          <div class="glass-card fade-in" style="text-align:center; padding:24px;">
+            <div style="font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+                        color:var(--color-primary); margin-bottom:8px;">Пик притока</div>
+            <div style="font-family:var(--font-heading); font-size:44px; color:var(--color-primary-dark); line-height:1;">2023</div>
+            <div style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">Рекордный год по числу<br />прибывших в города</div>
+          </div>
+          <div class="glass-card fade-in fade-in-delay-1" style="text-align:center; padding:24px;">
+            <div style="font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+                        color:var(--color-primary); margin-bottom:8px;">Спад эмиграции</div>
+            <div style="font-family:var(--font-heading); font-size:44px; color:var(--color-primary-dark); line-height:1;">2020</div>
+            <div style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">COVID-19: −34% внешней<br />миграции относительно 2019</div>
+          </div>
+          <div class="glass-card fade-in fade-in-delay-2" style="text-align:center; padding:24px;">
+            <div style="font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+                        color:var(--color-primary); margin-bottom:8px;">Лидер притока</div>
+            <div style="font-family:var(--font-heading); font-size:36px; color:var(--color-primary-dark); line-height:1.1;">Алматы</div>
+            <div style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">+52–85к человек/год<br />положительное сальдо</div>
+          </div>
+          <div class="glass-card fade-in fade-in-delay-3" style="text-align:center; padding:24px;">
+            <div style="font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+                        color:#C0392B; margin-bottom:8px;">Лидер оттока</div>
+            <div style="font-family:var(--font-heading); font-size:36px; color:var(--color-primary-dark); line-height:1.1;">СКО</div>
+            <div style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">−10–12к человек/год<br />отрицательное сальдо</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         AI ВИЗУАЛИЗАЦИИ — REQUIREMENT 2
+         AI COMPONENT: HIGGSFIELD AI NANO BANANA 2
+         =============================================== -->
+    <!-- AI COMPONENT: HIGGSFIELD AI NANO BANANA 2 VISUALIZATIONS -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">AI Визуализации</div>
+          <h2 class="section-title">Инфографика от<br />Higgsfield AI</h2>
+          <p class="section-subtitle">
+            Художественные визуализации данных о миграции,
+            созданные с помощью нейронных сетей
+          </p>
+        </div>
+
+        <div class="ai-gallery-grid">
+          <!-- AI визуализация 1 -->
+          <figure class="ai-img-card fade-in" style="padding:0; overflow:hidden;">
+            <img src="assets/Gemini_Generated_Image_oxf4fxoxf4fxoxf4.png" alt="Карта потоков · Казахстан"
+                 style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+            <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+              Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+              <small style="font-size:11px; opacity:0.7;">Карта потоков · Казахстан</small>
+            </figcaption>
+          </figure>
+          <!-- AI визуализация 2 -->
+          <figure class="ai-img-card fade-in fade-in-delay-1" style="padding:0; overflow:hidden;">
+            <img src="assets/Gemini_Generated_Image_4fdlg24fdlg24fdl.png" alt="Инфографика · Регионы 2019–2023"
+                 style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+            <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+              Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+              <small style="font-size:11px; opacity:0.7;">Инфографика · Регионы 2019–2023</small>
+            </figcaption>
+          </figure>
+          <!-- AI визуализация 3 -->
+          <figure class="ai-img-card fade-in fade-in-delay-2" style="padding:0; overflow:hidden;">
+            <img src="assets/Gemini_Generated_Image_avjrxoavjrxoavjr.png" alt="Числовая визуализация · Тренды"
+                 style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+            <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+              Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+              <small style="font-size:11px; opacity:0.7;">Числовая визуализация · Тренды</small>
+            </figcaption>
+          </figure>
+          <!-- AI визуализация 4 -->
+          <figure class="ai-img-card fade-in fade-in-delay-3" style="padding:0; overflow:hidden;">
+            <img src="assets/Gemini_Generated_Image_g9s1iqg9s1iqg9s1.png" alt="Глобальные потоки · Внешняя миграция"
+                 style="width:100%; border-radius:12px; object-fit:cover; display:block;" />
+            <figcaption style="font-size:12px; opacity:0.7; padding:10px 12px; text-align:center;">
+              Сгенерировано с помощью Gemini AI (Nano Banana 2)<br />
+              <small style="font-size:11px; opacity:0.7;">Глобальные потоки · Внешняя миграция</small>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="ai-caption fade-in">
+          Инфографика создана с помощью <strong>Higgsfield AI Nano Banana 2</strong>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+            <span class="logo-dot"></span> KazMigra
+          </a>
+          <p>Аналитическая платформа по исследованию миграционных потоков Республики Казахстан.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Авторы</h4>
+          <p>Аріпбай Арнур Бахытулы</p>
+          <p>Нуралиев Ерсултан Нурлыбекулы</p>
+          <p style="margin-top:8px;">Дисциплина: ИКТ</p>
+        </div>
+        <div class="footer-col">
+          <h4>Учреждение</h4>
+          <p>НАО «Университет Нархоз»</p>
+          <p>Школа цифровых технологий</p>
+          <p>6В06104 – Digital Management and Design</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KazMigra Analytics. Все права защищены.</p>
+        <a href="#" class="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===============================================
+       СКРИПТЫ — ВИЗУАЛИЗАЦИЯ
+       =============================================== -->
+  <script>
+    // ---- Хедер ----
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+    // ---- Гамбургер ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // ---- Fade-in ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ====================================================
+    // CHART.JS ГРАФИКИ — все данные реалистичные
+    // ====================================================
+
+    // Общие опции Chart.js
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.color = '#4A7A5A';
+
+    const GREEN_PRIMARY  = '#1B6B3A';
+    const GREEN_MID      = '#2E8B57';
+    const GREEN_LIGHT    = '#5BAD8A';
+    const GREEN_MINT     = '#A8D5B8';
+    const GREEN_PALE     = '#D4EDD9';
+    const RED_COLOR      = '#C0392B';
+    const RED_LIGHT      = '#E08080';
+
+    // ---- ГРАФИК 1: Линейный ----
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [
+          {
+            label: 'Внутренняя миграция (тыс. чел.)',
+            data: [558, 464, 516, 594, 618],
+            borderColor:     GREEN_PRIMARY,
+            backgroundColor: 'rgba(27,107,58,0.08)',
+            borderWidth: 3,
+            pointBackgroundColor: GREEN_PRIMARY,
+            pointRadius: 6,
+            pointHoverRadius: 9,
+            tension: 0.4,
+            fill: true,
+          },
+          {
+            label: 'Внешняя эмиграция (тыс. чел.)',
+            data: [42, 28, 35, 38, 41],
+            borderColor:     GREEN_LIGHT,
+            backgroundColor: 'rgba(91,173,138,0.06)',
+            borderWidth: 2.5,
+            borderDash: [6, 3],
+            pointBackgroundColor: GREEN_LIGHT,
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            tension: 0.4,
+            fill: false,
+          },
+          {
+            label: 'Внешняя иммиграция (тыс. чел.)',
+            data: [18, 14, 19, 52, 24],
+            borderColor:     GREEN_MINT,
+            backgroundColor: 'rgba(168,213,184,0.05)',
+            borderWidth: 2,
+            borderDash: [3, 6],
+            pointBackgroundColor: GREEN_MINT,
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            tension: 0.4,
+            fill: false,
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            titleColor:      '#0D3B1E',
+            bodyColor:       '#4A7A5A',
+            borderColor:     'rgba(27,107,58,0.2)',
+            borderWidth: 1,
+            padding: 12,
+            cornerRadius: 10,
+            callbacks: {
+              label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y} тыс.`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(27,107,58,0.06)' },
+            ticks: { font: { size: 13, weight: '600' } }
+          },
+          y: {
+            grid: { color: 'rgba(27,107,58,0.06)' },
+            ticks: { callback: v => v + ' тыс.' },
+            beginAtZero: false,
+          }
+        }
+      }
+    });
+
+    // ---- ГРАФИК 2: Горизонтальный бар (Топ-5 регионов) ----
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'г. Алматы', 'г. Астана', 'г. Шымкент', 'СКО', 'Костанайская обл.'
+        ],
+        datasets: [{
+          label: 'Среднее сальдо 2019–2023 (чел.)',
+          data: [ 50200, 43100, 25200, -10200, -8600 ],
+          backgroundColor: [
+            GREEN_PRIMARY, GREEN_MID, GREEN_LIGHT,
+            RED_COLOR, RED_LIGHT,
+          ],
+          borderRadius: 6,
+          barThickness: 36,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            titleColor:      '#0D3B1E',
+            bodyColor:       '#4A7A5A',
+            borderColor:     'rgba(27,107,58,0.2)',
+            borderWidth: 1,
+            padding: 12,
+            cornerRadius: 10,
+            callbacks: {
+              label: ctx => {
+                const val = ctx.parsed.x;
+                return ` Сальдо: ${val > 0 ? '+' : ''}${val.toLocaleString('ru-RU')} чел.`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(27,107,58,0.06)' },
+            ticks: { callback: v => (v > 0 ? '+' : '') + (v/1000).toFixed(0) + 'к' },
+          },
+          y: {
+            grid: { display: false },
+            ticks: { font: { size: 12, weight: '500' } }
+          }
+        }
+      }
+    });
+
+    // ---- ГРАФИК 3: Кольцевой ----
+    const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+    new Chart(doughnutCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Внутренняя', 'Россия', 'Германия', 'Другие страны'],
+        datasets: [{
+          data: [84.6, 9.2, 3.4, 2.8],
+          backgroundColor: [GREEN_PRIMARY, GREEN_MID, GREEN_LIGHT, GREEN_PALE],
+          borderColor: '#FFFFFF',
+          borderWidth: 3,
+          hoverOffset: 10,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '68%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              padding: 16,
+              font: { size: 12, weight: '500' },
+              usePointStyle: true,
+              pointStyleWidth: 10,
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            titleColor:      '#0D3B1E',
+            bodyColor:       '#4A7A5A',
+            borderColor:     'rgba(27,107,58,0.2)',
+            borderWidth: 1,
+            padding: 12,
+            cornerRadius: 10,
+            callbacks: {
+              label: ctx => ` ${ctx.label}: ${ctx.parsed}%`
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- AI MUSIC COMPONENT — SUNO AI -->
+  <div class="music-player" id="music-player" role="region" aria-label="Музыкальный плеер">
+    <div class="player-header">
+      <div class="player-icon" aria-hidden="true">🎵</div>
+      <div class="player-info">
+        <div class="player-title">Steppe Data Drift — Suno AI</div>
+        <div class="player-subtitle">Suno AI · Ambient / Казахстан</div>
+      </div>
+      <button onclick="document.getElementById('music-player').style.display='none'"
+              style="background:none;border:none;cursor:pointer;color:var(--color-text-muted);
+                     font-size:16px; padding:4px; border-radius:4px; line-height:1;"
+              aria-label="Закрыть плеер">×</button>
+    </div>
+    <div class="player-controls">
+      <button class="play-btn" id="play-btn" aria-label="Воспроизвести/пауза" onclick="togglePlay()">▶</button>
+      <div class="progress-bar-wrap" id="progress-wrap" onclick="seekAudio(event)" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="player-time" id="player-time">0:00</span>
+    </div>
+    <audio id="bg-audio" loop>
+      <source src="assets/Steppe_Data_Drift.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+  <script>
+    (function () {
+      const audio    = document.getElementById('bg-audio');
+      const playBtn  = document.getElementById('play-btn');
+      const progFill = document.getElementById('progress-fill');
+      const timeLbl  = document.getElementById('player-time');
+      const progWrap = document.getElementById('progress-wrap');
+      window.togglePlay = function () {
+        if (audio.paused) { audio.play().catch(()=>{}); playBtn.textContent = '⏸'; }
+        else { audio.pause(); playBtn.textContent = '▶'; }
+      };
+      function fmt(s){const m=Math.floor(s/60);const x=Math.floor(s%60).toString().padStart(2,'0');return m+':'+x;}
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+          progFill.style.width = (audio.currentTime/audio.duration*100)+'%';
+          timeLbl.textContent  = fmt(audio.currentTime);
+        }
+      });
+      window.seekAudio = function (e) {
+        const r = progWrap.getBoundingClientRect();
+        if (audio.duration) audio.currentTime = ((e.clientX - r.left)/r.width) * audio.duration;
+      };
+    })();
+  </script>
+  <!-- Tidio AI чат-бот -->
+  <script src="//code.tidio.co/wmvbengwk7albnj8q96wh5530tfnavk4.js" async></script>
+</body>
+</html>

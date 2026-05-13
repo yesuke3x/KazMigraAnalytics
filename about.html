@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>О проекте — KazMigra Analytics</title>
+  <meta name="description" content="О проекте KazMigra Analytics. Методология, источники данных, авторы и технологии анализа миграции Казахстана." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Дополнительные стили для страницы "О проекте" */
+    .source-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-sage);
+    }
+    .source-item:last-child { border-bottom: none; }
+    .source-num {
+      width: 28px; height: 28px;
+      min-width: 28px;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .source-text { font-size: 14px; color: var(--color-text-muted); line-height: 1.6; }
+    .source-text strong { color: var(--color-primary-dark); }
+  </style>
+</head>
+<body>
+
+  <!-- ===============================================
+       ХЕДЕР
+       =============================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>KazMigra
+      </a>
+      <nav aria-label="Основное меню">
+        <ul class="nav-links">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="analysis.html">Анализ</a></li>
+          <li><a href="visualization.html">Визуализация</a></li>
+          <li><a href="ai-assistant.html">AI Ассистент</a></li>
+          <li><a href="about.html" class="active">О проекте</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+    <a href="index.html">Главная</a>
+    <a href="analysis.html">Анализ</a>
+    <a href="visualization.html">Визуализация</a>
+    <a href="ai-assistant.html">AI Ассистент</a>
+    <a href="about.html" class="active">О проекте</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container page-hero-content">
+        <div class="breadcrumb fade-in">
+          <a href="index.html">Главная</a>
+          <span>›</span>
+          <span>О проекте</span>
+        </div>
+        <h1 class="page-hero-title fade-in">О проекте<br />KazMigra</h1>
+        <p class="page-hero-subtitle fade-in">
+          Учебно-исследовательский проект НАО «Университет Нархоз» —
+          аналитика и визуализация миграционных потоков Казахстана
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================
+         AI-АВАТАР НАУЧНОГО РУКОВОДИТЕЛЯ
+         =============================================== -->
+    <section class="section">
+      <div class="container">
+        <figure class="glass-card fade-in" style="max-width:340px; margin:0 auto; padding:24px; text-align:center;">
+          <img src="assets/professor_ai_generated_hero.png" alt="AI-аватар научного руководителя"
+               style="width:100%; max-width:280px; height:auto; border-radius:16px; object-fit:cover; display:block; margin:0 auto 16px;" />
+          <figcaption style="font-size:13px; color:var(--color-text-muted); line-height:1.5;">
+            AI-аватар создан с помощью Higgsfield AI
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         О ПРОЕКТЕ — ОПИСАНИЕ
+         =============================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <div class="section-tag fade-in">Описание</div>
+            <h2 class="section-title fade-in" style="text-align:left; font-size:clamp(26px,4vw,40px); margin-bottom:24px;">
+              Цели и задачи<br />проекта
+            </h2>
+            <div class="about-intro fade-in">
+              <p>
+                Проект <strong>KazMigra Analytics</strong> создан в рамках учебной дисциплины
+                «Информационно-коммуникационные технологии» студентами программы
+                <strong>6В06104 — Digital Management and Design</strong> Школы цифровых
+                технологий НАО «Университет Нархоз».
+              </p>
+              <p>
+                Основная цель проекта — разработать интерактивную
+                веб-платформу для анализа и визуализации миграционных
+                потоков по всем <strong>17 регионам Казахстана</strong> за период
+                2019–2023 годов с применением современных веб-технологий,
+                инструментов визуализации данных и AI-компонентов.
+              </p>
+              <p>
+                Проект демонстрирует практическое применение компетенций
+                в области веб-разработки, дата-аналитики и использования
+                искусственного интеллекта для решения прикладных
+                аналитических задач в сфере демографии и региональной политики.
+              </p>
+            </div>
+          </div>
+
+          <!-- Цифры проекта -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;" class="fade-in fade-in-delay-1">
+            <div class="glass-card" style="text-align:center; padding:24px 16px;">
+              <div style="font-family:var(--font-heading); font-size:48px; color:var(--color-primary); line-height:1; margin-bottom:8px;">5</div>
+              <div style="font-size:13px; color:var(--color-text-muted); font-weight:600;">Страниц сайта</div>
+            </div>
+            <div class="glass-card" style="text-align:center; padding:24px 16px;">
+              <div style="font-family:var(--font-heading); font-size:48px; color:var(--color-primary); line-height:1; margin-bottom:8px;">17</div>
+              <div style="font-size:13px; color:var(--color-text-muted); font-weight:600;">Регионов РК</div>
+            </div>
+            <div class="glass-card" style="text-align:center; padding:24px 16px;">
+              <div style="font-family:var(--font-heading); font-size:48px; color:var(--color-primary); line-height:1; margin-bottom:8px;">3</div>
+              <div style="font-size:13px; color:var(--color-text-muted); font-weight:600;">Chart.js графика</div>
+            </div>
+            <div class="glass-card" style="text-align:center; padding:24px 16px;">
+              <div style="font-family:var(--font-heading); font-size:48px; color:var(--color-primary); line-height:1; margin-bottom:8px;">85</div>
+              <div style="font-size:13px; color:var(--color-text-muted); font-weight:600;">Записей данных</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         МЕТОДОЛОГИЯ
+         =============================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">Методология</div>
+          <h2 class="section-title">Подход и методы<br />исследования</h2>
+        </div>
+        <div class="methodology-grid">
+          <div class="card method-card fade-in">
+            <div class="method-icon">📊</div>
+            <div class="method-title">Сбор и обработка данных</div>
+            <div class="method-desc">
+              Данные собраны из официальных источников: Комитет по статистике РК,
+              Министерство внутренних дел, Бюро национальной статистики.
+              Охватывают 2019–2023 гг. по всем 17 регионам.
+            </div>
+          </div>
+          <div class="card method-card fade-in fade-in-delay-1">
+            <div class="method-icon">🔢</div>
+            <div class="method-title">Расчёт показателей</div>
+            <div class="method-desc">
+              Основные показатели: число прибывших и выбывших мигрантов,
+              сальдо миграции, доля внешней эмиграции, сравнительный анализ
+              по регионам и годам, индексы урбанизации.
+            </div>
+          </div>
+          <div class="card method-card fade-in fade-in-delay-2">
+            <div class="method-icon">📈</div>
+            <div class="method-title">Визуализация</div>
+            <div class="method-desc">
+              Для визуализации использованы Chart.js (линейные, столбчатые
+              и кольцевые диаграммы), динамические HTML-таблицы с фильтрацией
+              и сортировкой, AI-инфографика от Higgsfield AI.
+            </div>
+          </div>
+          <div class="card method-card fade-in fade-in-delay-1">
+            <div class="method-icon">🤖</div>
+            <div class="method-title">AI-компоненты</div>
+            <div class="method-desc">
+              Проект интегрирует несколько AI-инструментов: Tidio (чат-бот),
+              HeyGen (AI-аватар), Higgsfield AI (изображения и инфографика),
+              Suno AI (фоновая музыка), AI-прогнозирование.
+            </div>
+          </div>
+          <div class="card method-card fade-in fade-in-delay-2">
+            <div class="method-icon">🌐</div>
+            <div class="method-title">Веб-технологии</div>
+            <div class="method-desc">
+              Платформа разработана на чистых веб-технологиях: HTML5, CSS3
+              (Flexbox, Grid, CSS Custom Properties), JavaScript (ES6+),
+              Chart.js. Адаптивный дизайн, семантическая разметка.
+            </div>
+          </div>
+          <div class="card method-card fade-in">
+            <div class="method-icon">📋</div>
+            <div class="method-title">Ограничения</div>
+            <div class="method-desc">
+              Данные носят учебно-исследовательский характер и основаны на
+              официальной статистике РК. Часть показателей является
+              интерполяцией. Прогнозы — экстраполяция тенденций.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         ИСТОЧНИКИ ДАННЫХ
+         =============================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <div class="section-tag fade-in">Источники</div>
+            <h2 class="section-title fade-in" style="text-align:left; font-size:clamp(26px,4vw,38px); margin-bottom:28px;">
+              Источники данных<br />и литература
+            </h2>
+            <div class="fade-in">
+              <div class="source-item">
+                <div class="source-num">1</div>
+                <div class="source-text"><strong>Бюро национальной статистики РК</strong> — ежегодные отчёты о естественном и механическом движении населения, 2019–2023</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">2</div>
+                <div class="source-text"><strong>Министерство внутренних дел РК</strong> — данные о регистрации места жительства и учёте мигрантов</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">3</div>
+                <div class="source-text"><strong>Комитет по статистике МНЭ РК</strong> — демографический ежегодник Казахстана</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">4</div>
+                <div class="source-text"><strong>Министерство труда и социальной защиты РК</strong> — данные о трудовой миграции и занятости</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">5</div>
+                <div class="source-text"><strong>ООН / UNHCR</strong> — международные доклады о беженцах и вынужденных переселенцах в Центральной Азии</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">6</div>
+                <div class="source-text"><strong>Всемирный банк</strong> — Migration and Remittances Factbook: Kazakhstan, 2020–2024</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">7</div>
+                <div class="source-text"><strong>МВД Германии</strong> — статистика репатриантов-переселенцев из РК и РФ, 2019–2023</div>
+              </div>
+              <div class="source-item">
+                <div class="source-num">8</div>
+                <div class="source-text"><strong>Институт демографии ВШЭ (Москва)</strong> — аналитика постсоветских миграционных потоков</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Технологии -->
+          <div>
+            <div class="section-tag fade-in">Стек технологий</div>
+            <h2 class="fade-in" style="font-family:var(--font-heading); font-size:clamp(24px,3.5vw,36px);
+                color:var(--color-primary-dark); letter-spacing:0.5px; margin-bottom:24px; line-height:1.1;">
+              Использованные<br />технологии
+            </h2>
+            <div class="tech-badges fade-in" style="gap:10px;">
+              <span class="badge">🌐 HTML5</span>
+              <span class="badge">🎨 CSS3</span>
+              <span class="badge">⚡ JavaScript ES6+</span>
+              <span class="badge">📊 Chart.js</span>
+              <span class="badge">🤖 Tidio AI</span>
+              <span class="badge">🎵 Suno AI</span>
+              <span class="badge">🖼️ Higgsfield AI</span>
+              <span class="badge">🎬 HeyGen</span>
+              <span class="badge">🚀 Onspace</span>
+              <span class="badge">📐 CSS Grid</span>
+              <span class="badge">💎 Glassmorphism</span>
+              <span class="badge">🎯 Canvas API</span>
+            </div>
+
+            <!-- Особенности дизайна -->
+            <div class="card fade-in fade-in-delay-1" style="margin-top:28px; padding:24px;">
+              <div style="font-size:14px; font-weight:700; color:var(--color-primary-dark); margin-bottom:14px;">
+                🎨 Особенности дизайна
+              </div>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+                <li style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--color-text-muted);">
+                  <span style="color:var(--color-primary); flex-shrink:0;">✓</span>
+                  Dot-grid текстура через CSS radial-gradient
+                </li>
+                <li style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--color-text-muted);">
+                  <span style="color:var(--color-primary); flex-shrink:0;">✓</span>
+                  Glassmorphism: backdrop-filter blur(10px)
+                </li>
+                <li style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--color-text-muted);">
+                  <span style="color:var(--color-primary); flex-shrink:0;">✓</span>
+                  Анимированные частицы (Canvas API)
+                </li>
+                <li style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--color-text-muted);">
+                  <span style="color:var(--color-primary); flex-shrink:0;">✓</span>
+                  Счётчики с count-up (IntersectionObserver)
+                </li>
+                <li style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--color-text-muted);">
+                  <span style="color:var(--color-primary); flex-shrink:0;">✓</span>
+                  Scroll-triggered fade-in анимации
+                </li>
+                <li style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--color-text-muted);">
+                  <span style="color:var(--color-primary); flex-shrink:0;">✓</span>
+                  Адаптивный дизайн (mobile-first)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         АВТОРЫ
+         =============================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-tag">Команда</div>
+          <h2 class="section-title">Авторы проекта</h2>
+          <p class="section-subtitle">
+            Студенты Школы цифровых технологий НАО «Университет Нархоз»
+          </p>
+        </div>
+
+        <div class="authors-grid fade-in" style="margin-bottom:40px;">
+          <!-- Автор 1 -->
+          <div class="card author-card" style="padding:28px;">
+            <div class="author-avatar">АА</div>
+            <div>
+              <div class="author-name">Аріпбай Арнур Бахытулы</div>
+              <div class="author-role">
+                Студент программы 6В06104<br />
+                Digital Management and Design<br />
+                НАО «Университет Нархоз»
+              </div>
+              <div style="margin-top:10px; display:flex; gap:6px; flex-wrap:wrap;">
+                <span class="badge" style="font-size:11px;">💻 Разработка</span>
+                <span class="badge" style="font-size:11px;">📊 Аналитика</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Автор 2 -->
+          <div class="card author-card" style="padding:28px;">
+            <div class="author-avatar">НЕ</div>
+            <div>
+              <div class="author-name">Нуралиев Ерсултан Нурлыбекулы</div>
+              <div class="author-role">
+                Студент программы 6В06104<br />
+                Digital Management and Design<br />
+                НАО «Университет Нархоз»
+              </div>
+              <div style="margin-top:10px; display:flex; gap:6px; flex-wrap:wrap;">
+                <span class="badge" style="font-size:11px;">🎨 Дизайн</span>
+                <span class="badge" style="font-size:11px;">📈 Данные</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Информация об учреждении -->
+        <div class="glass-card fade-in fade-in-delay-1" style="max-width: 660px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+            <span style="font-size:40px;">🎓</span>
+            <div>
+              <div style="font-size:17px; font-weight:700; color:var(--color-primary-dark);">НАО «Университет Нархоз»</div>
+              <div style="font-size:13px; color:var(--color-text-muted);">Школа цифровых технологий · г. Алматы, Казахстан</div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; gap:8px; font-size:13px; color:var(--color-text-muted);">
+              <span style="color:var(--color-primary); font-weight:600; min-width:110px;">Дисциплина:</span>
+              <span>ИКТ — Информационно-коммуникационные технологии</span>
+            </div>
+            <div style="display:flex; gap:8px; font-size:13px; color:var(--color-text-muted);">
+              <span style="color:var(--color-primary); font-weight:600; min-width:110px;">Программа:</span>
+              <span>6В06104 – Digital Management and Design</span>
+            </div>
+            <div style="display:flex; gap:8px; font-size:13px; color:var(--color-text-muted);">
+              <span style="color:var(--color-primary); font-weight:600; min-width:110px;">Год:</span>
+              <span>2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         КОНТАКТНАЯ ФОРМА + КАРТА
+         =============================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col">
+
+          <!-- Форма обратной связи -->
+          <div>
+            <div class="section-tag fade-in">Обратная связь</div>
+            <h2 class="section-title fade-in" style="text-align:left; font-size:clamp(26px,4vw,38px); margin-bottom:8px;">
+              Свяжитесь с нами
+            </h2>
+            <p class="fade-in" style="font-size:15px; color:var(--color-text-muted); margin-bottom:28px; line-height:1.65;">
+              Есть вопросы по методологии, данным или проекту?
+              Напишите нам — мы рады ответить!
+            </p>
+
+            <form class="contact-form fade-in" id="contact-form" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Ваше имя *</label>
+                <input type="text" id="contact-name" class="form-input"
+                       placeholder="Введите ваше имя"
+                       required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email *</label>
+                <input type="email" id="contact-email" class="form-input"
+                       placeholder="example@email.com"
+                       required autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Сообщение *</label>
+                <textarea id="contact-message" class="form-textarea"
+                          placeholder="Ваш вопрос или комментарий к проекту..."
+                          required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                ✉️ Отправить сообщение
+              </button>
+              <div class="form-success" id="form-success">
+                ✅ Спасибо! Ваше сообщение получено. Мы ответим в ближайшее время.
+              </div>
+            </form>
+          </div>
+
+          <!-- Карта -->
+          <div>
+            <div class="section-tag fade-in">Местоположение</div>
+            <h2 class="fade-in" style="font-family:var(--font-heading); font-size:clamp(24px,3.5vw,36px);
+                color:var(--color-primary-dark); letter-spacing:0.5px; margin-bottom:28px; line-height:1.1;">
+              Алматы,<br />Казахстан
+            </h2>
+
+            <!-- Google Maps placeholder -->
+            <!-- AI COMPONENT: GOOGLE MAPS EMBED -->
+            <div class="map-placeholder fade-in fade-in-delay-1">
+              <div class="map-icon">🗺️</div>
+              <div>Google Maps — Алматы, Казахстан</div>
+              <div style="font-size:12px; opacity:0.6; margin-top:4px;">
+                Вставить embed-код Google Maps здесь
+              </div>
+              <div style="margin-top:12px; font-size:12px; opacity:0.5; text-align:center;">
+                НАО «Университет Нархоз»<br />
+                ул. Жандосова, 55, Алматы 050035
+              </div>
+            </div>
+
+            <!-- Контактная информация -->
+            <div style="display:flex; flex-direction:column; gap:12px; margin-top:24px;">
+              <div class="card" style="padding:16px 20px; display:flex; align-items:center; gap:14px;">
+                <span style="font-size:22px;">🏛️</span>
+                <div>
+                  <div style="font-size:13px; font-weight:700; color:var(--color-primary-dark);">НАО «Университет Нархоз»</div>
+                  <div style="font-size:12px; color:var(--color-text-muted);">ул. Жандосова, 55 · Алматы, Казахстан</div>
+                </div>
+              </div>
+              <div class="card" style="padding:16px 20px; display:flex; align-items:center; gap:14px;">
+                <span style="font-size:22px;">🎓</span>
+                <div>
+                  <div style="font-size:13px; font-weight:700; color:var(--color-primary-dark);">Школа цифровых технологий</div>
+                  <div style="font-size:12px; color:var(--color-text-muted);">6В06104 — Digital Management and Design</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===============================================
+       FOOTER
+       =============================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+            <span class="logo-dot"></span> KazMigra
+          </a>
+          <p>
+            Учебно-исследовательская аналитическая платформа по изучению
+            миграционных потоков Республики Казахстан.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Авторы</h4>
+          <p>Аріпбай Арнур Бахытулы</p>
+          <p>Нуралиев Ерсултан Нурлыбекулы</p>
+          <p style="margin-top:8px;">Дисциплина: ИКТ —</p>
+          <p>Информационно-коммуникационные технологии</p>
+        </div>
+        <div class="footer-col">
+          <h4>Учреждение</h4>
+          <p>НАО «Университет Нархоз»</p>
+          <p>Школа цифровых технологий</p>
+          <p>6В06104 – Digital Management</p>
+          <p>and Design</p>
+          <p style="margin-top:8px; color:rgba(255,255,255,0.4);">Алматы, Казахстан · 2025</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KazMigra Analytics. Учебный проект. Все права защищены.</p>
+        <a href="#" class="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===============================================
+       СКРИПТЫ — О ПРОЕКТЕ
+       =============================================== -->
+  <script>
+    // ---- Хедер ----
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+    // ---- Гамбургер ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // ---- Fade-in ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ---- Контактная форма ----
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name    = document.getElementById('contact-name').value.trim();
+      const email   = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Пожалуйста, заполните все обязательные поля.');
+        return;
+      }
+
+      // Имитация отправки формы
+      const btn = this.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = '⏳ Отправка...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        document.getElementById('form-success').style.display = 'block';
+        this.reset();
+        setTimeout(() => {
+          document.getElementById('form-success').style.display = 'none';
+        }, 5000);
+      }, 1400);
+    });
+  </script>
+
+  <!-- AI MUSIC COMPONENT — SUNO AI -->
+  <div class="music-player" id="music-player" role="region" aria-label="Музыкальный плеер">
+    <div class="player-header">
+      <div class="player-icon" aria-hidden="true">🎵</div>
+      <div class="player-info">
+        <div class="player-title">Steppe Data Drift — Suno AI</div>
+        <div class="player-subtitle">Suno AI · Ambient / Казахстан</div>
+      </div>
+      <button onclick="document.getElementById('music-player').style.display='none'"
+              style="background:none;border:none;cursor:pointer;color:var(--color-text-muted);
+                     font-size:16px; padding:4px; border-radius:4px; line-height:1;"
+              aria-label="Закрыть плеер">×</button>
+    </div>
+    <div class="player-controls">
+      <button class="play-btn" id="play-btn" aria-label="Воспроизвести/пауза" onclick="togglePlay()">▶</button>
+      <div class="progress-bar-wrap" id="progress-wrap" onclick="seekAudio(event)" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="player-time" id="player-time">0:00</span>
+    </div>
+    <audio id="bg-audio" loop>
+      <source src="assets/Steppe_Data_Drift.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+  <script>
+    (function () {
+      const audio    = document.getElementById('bg-audio');
+      const playBtn  = document.getElementById('play-btn');
+      const progFill = document.getElementById('progress-fill');
+      const timeLbl  = document.getElementById('player-time');
+      const progWrap = document.getElementById('progress-wrap');
+      window.togglePlay = function () {
+        if (audio.paused) { audio.play().catch(()=>{}); playBtn.textContent = '⏸'; }
+        else { audio.pause(); playBtn.textContent = '▶'; }
+      };
+      function fmt(s){const m=Math.floor(s/60);const x=Math.floor(s%60).toString().padStart(2,'0');return m+':'+x;}
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+          progFill.style.width = (audio.currentTime/audio.duration*100)+'%';
+          timeLbl.textContent  = fmt(audio.currentTime);
+        }
+      });
+      window.seekAudio = function (e) {
+        const r = progWrap.getBoundingClientRect();
+        if (audio.duration) audio.currentTime = ((e.clientX - r.left)/r.width) * audio.duration;
+      };
+    })();
+  </script>
+  <!-- Tidio AI чат-бот -->
+  <script src="//code.tidio.co/wmvbengwk7albnj8q96wh5530tfnavk4.js" async></script>
+</body>
+</html>
