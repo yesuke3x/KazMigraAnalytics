@@ -68,13 +68,18 @@
 
     <!-- PAGE HERO -->
     <div class="page-hero">
+      <div class="bg-orbs" aria-hidden="true">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+      </div>
       <div class="container page-hero-content">
         <div class="breadcrumb fade-in">
           <a href="index.html">Главная</a>
           <span>›</span>
           <span>Визуализация</span>
         </div>
-        <h1 class="page-hero-title fade-in">Визуализация<br />Данных</h1>
+        <h1 class="page-hero-title fade-in">Визуализация<br /><span class="gradient-text">Данных</span></h1>
         <p class="page-hero-subtitle fade-in">
           Интерактивные графики и диаграммы на основе реальных
           статистических данных о миграции в Казахстане за 2019–2023 годы
@@ -297,6 +302,11 @@
     Chart.defaults.font.family = "'Inter', sans-serif";
     Chart.defaults.color = '#4A7A5A';
 
+    // Кастомный positioner — тултип следует за курсором
+    Chart.Tooltip.positioners.cursor = function(_elements, eventPosition) {
+      return { x: eventPosition.x, y: eventPosition.y };
+    };
+
     const GREEN_PRIMARY  = '#1B6B3A';
     const GREEN_MID      = '#2E8B57';
     const GREEN_LIGHT    = '#5BAD8A';
@@ -359,6 +369,9 @@
         plugins: {
           legend: { display: false },
           tooltip: {
+            position: 'cursor',
+            caretSize: 0,
+            yAlign: 'bottom',
             backgroundColor: 'rgba(255,255,255,0.95)',
             titleColor:      '#0D3B1E',
             bodyColor:       '#4A7A5A',
@@ -411,6 +424,9 @@
         plugins: {
           legend: { display: false },
           tooltip: {
+            position: 'cursor',
+            caretSize: 0,
+            yAlign: 'bottom',
             backgroundColor: 'rgba(255,255,255,0.95)',
             titleColor:      '#0D3B1E',
             bodyColor:       '#4A7A5A',
@@ -468,6 +484,9 @@
             }
           },
           tooltip: {
+            position: 'cursor',
+            caretSize: 0,
+            yAlign: 'bottom',
             backgroundColor: 'rgba(255,255,255,0.95)',
             titleColor:      '#0D3B1E',
             bodyColor:       '#4A7A5A',

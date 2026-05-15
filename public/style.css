@@ -770,6 +770,13 @@ body::before {
   border-color: var(--color-primary);
   color: #fff;
 }
+/* Убираем белый фокус-ринг по умолчанию, оставляем мягкий зелёный */
+.year-btn:focus { outline: none; }
+.year-btn:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+.year-btn::-moz-focus-inner { border: 0; }
 .table-wrap {
   overflow-x: auto;
   border-radius: var(--radius-md);
@@ -798,6 +805,11 @@ body::before {
   transition: background var(--transition);
 }
 .data-table thead th:hover { background: var(--color-primary); }
+.data-table thead th:focus { outline: none; background: var(--color-primary); }
+.data-table thead th:focus-visible {
+  outline: 2px solid rgba(168,213,184,0.9);
+  outline-offset: -3px;
+}
 .data-table thead th::after { content: ' ↕'; opacity: 0.4; }
 .data-table thead th.sort-asc::after  { content: ' ↑'; opacity: 1; }
 .data-table thead th.sort-desc::after { content: ' ↓'; opacity: 1; }
@@ -1128,7 +1140,7 @@ body::before {
   .authors-grid      { grid-template-columns: 1fr; max-width: 100%; }
   .charts-grid       { grid-template-columns: 1fr; }
   .section           { padding: 56px 0; }
-  .music-player      { min-width: 220px; right: 12px; bottom: 12px; }
+  .music-player      { min-width: 220px; left: 12px; bottom: 12px; }
   .tidio-placeholder { height: 420px; }
 
   .hint-btns { flex-direction: column; }
@@ -1176,3 +1188,435 @@ body::before {
 .mb-16 { margin-bottom: 16px; }
 .mb-24 { margin-bottom: 24px; }
 .mb-40 { margin-bottom: 40px; }
+
+/* =====================================================
+   AMBIENT ENHANCEMENTS — фоны, орбы, акценты, анимации
+   Только декоративный слой, не трогает структуру.
+   ===================================================== */
+
+/* ===== 1. ПЛАВАЮЩИЕ ОРБЫ (фоновые градиентные пятна) ===== */
+.bg-orbs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.8;
+  will-change: transform;
+  mix-blend-mode: multiply;
+}
+.bg-orb-1 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(46,139,87,0.75), transparent 70%);
+  top: -140px; left: -120px;
+  animation: orb-float-a 18s ease-in-out infinite;
+}
+.bg-orb-2 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(110,200,150,0.85), transparent 70%);
+  bottom: -120px; right: -100px;
+  animation: orb-float-b 22s ease-in-out infinite;
+}
+.bg-orb-3 {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(27,107,58,0.6), transparent 70%);
+  top: 30%; left: 55%;
+  animation: orb-float-c 26s ease-in-out infinite;
+}
+@keyframes orb-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(90px, 70px) scale(1.15); }
+}
+@keyframes orb-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-110px, -60px) scale(1.1); }
+}
+@keyframes orb-float-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-70px, 50px) scale(0.9); }
+  66%      { transform: translate(60px, -40px) scale(1.12); }
+}
+
+/* Гарантия: контент над орбами */
+.hero > .container,
+.hero-content,
+.page-hero > .container,
+.page-hero-content { position: relative; z-index: 2; }
+
+/* ===== 2. AURORA MESH НА section-alt (живой подвижный фон) ===== */
+.section-alt {
+  position: relative;
+  overflow: hidden;
+}
+.section-alt > .container { position: relative; z-index: 1; }
+.section-alt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 600px 400px at 15% 25%, rgba(46,139,87,0.10), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 85% 75%, rgba(168,213,184,0.12), transparent 60%),
+    radial-gradient(ellipse 400px 300px at 50% 50%, rgba(27,107,58,0.06), transparent 70%);
+  animation: aurora-shift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes aurora-shift {
+  0% {
+    background-image:
+      radial-gradient(ellipse 600px 400px at 15% 25%, rgba(46,139,87,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 85% 75%, rgba(168,213,184,0.12), transparent 60%),
+      radial-gradient(ellipse 400px 300px at 50% 50%, rgba(27,107,58,0.06), transparent 70%);
+  }
+  100% {
+    background-image:
+      radial-gradient(ellipse 700px 500px at 85% 25%, rgba(46,139,87,0.10), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 15% 75%, rgba(168,213,184,0.12), transparent 60%),
+      radial-gradient(ellipse 500px 350px at 30% 30%, rgba(27,107,58,0.06), transparent 70%);
+  }
+}
+
+/* ===== 3. КАРТОЧКИ — мягкий лифт + свечение по hover ===== */
+.card,
+.glass-card,
+.stat-card,
+.author-card,
+.forecast-card,
+.ai-image-card,
+.finding-card {
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+.card:hover,
+.glass-card:hover,
+.author-card:hover,
+.finding-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(27,107,58,0.20), 0 0 0 1px rgba(46,139,87,0.18);
+}
+.stat-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 22px 44px rgba(27,107,58,0.22);
+}
+
+/* ===== 4. СТАТ-КАРТОЧКИ — shimmer sweep (бликующая полоса) ===== */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255,255,255,0.5) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.stat-card:hover::after { transform: translateX(120%); }
+.stat-card > * { position: relative; z-index: 2; }
+
+/* Glow на цифрах счётчиков */
+.stat-value {
+  text-shadow: 0 0 30px rgba(46,139,87,0.25);
+  transition: text-shadow 0.4s ease;
+}
+.stat-card:hover .stat-value {
+  text-shadow: 0 0 36px rgba(46,139,87,0.5);
+}
+
+/* ===== 5. ГРАДИЕНТНЫЙ АНИМИРОВАННЫЙ ТЕКСТ (по классу) ===== */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #1B6B3A, #2E8B57, #6FB78A, #2E8B57, #1B6B3A
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-pan 9s linear infinite;
+}
+@keyframes gradient-pan {
+  to { background-position: -200% 0; }
+}
+
+/* ===== 6. ЛОГО — кольцевой пульс ===== */
+.logo-dot {
+  position: relative;
+}
+.logo-dot::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(46,139,87,0.55);
+  animation: ring-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ring-pulse {
+  0%   { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ===== 7. ПРОГНОЗ-КАРТОЧКИ — вращающийся conic-градиент по краю ===== */
+.forecast-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.forecast-card::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(46,139,87,0.55) 25%,
+    transparent 35%,
+    transparent 100%
+  );
+  animation: rotate-conic 5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: -1;
+}
+.forecast-card:hover::before { opacity: 1; }
+.forecast-card::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: var(--color-white, #fff);
+  border-radius: inherit;
+  z-index: -1;
+}
+@keyframes rotate-conic {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== 8. КНОПКА PRIMARY — радужная подсветка по hover ===== */
+.btn-primary {
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    120deg,
+    #1B6B3A, #2E8B57, #A8D5B8, #2E8B57, #1B6B3A
+  );
+  background-size: 300% 100%;
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: gradient-pan 4s linear infinite;
+}
+.btn-primary:hover::before { opacity: 0.85; }
+
+/* ===== 9. НАВ-ССЫЛКИ — растущее подчёркивание ===== */
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px; bottom: 4px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #2E8B57));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+
+/* ===== 10. ИЗОБРАЖЕНИЯ AI-ГАЛЕРЕИ — приподнятие + свечение ===== */
+.ai-image-card,
+.ai-gallery-grid img,
+.ai-gallery-grid > * {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, filter 0.5s ease;
+}
+.ai-image-card:hover,
+.ai-gallery-grid > *:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 26px 50px rgba(27,107,58,0.30);
+  filter: brightness(1.05) saturate(1.08);
+}
+
+/* ===== 11. SECTION TITLE — мягкое свечение под текстом ===== */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 16px auto 0;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  border-radius: 2px;
+  animation: title-bar 3s ease-in-out infinite;
+}
+@keyframes title-bar {
+  0%, 100% { transform: scaleX(1); opacity: 0.7; }
+  50%      { transform: scaleX(1.6); opacity: 1; }
+}
+
+/* ===== 12. ВЕРХНИЙ DIVIDER (тонкая анимированная полоса) ===== */
+.divider {
+  position: relative;
+  overflow: hidden;
+}
+.divider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(46,139,87,0.7),
+    transparent
+  );
+  animation: divider-sweep 4s ease-in-out infinite;
+}
+@keyframes divider-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== 13. ХИНТ-КНОПКИ AI-АССИСТЕНТА — свечение по hover ===== */
+.hint-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hint-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(46,139,87,0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.hint-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(27,107,58,0.18);
+}
+.hint-btn:hover::before { opacity: 1; }
+
+/* ===== 14. PAGE HERO — лёгкий парящий бекграунд ===== */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(46,139,87,0.10), transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(168,213,184,0.13), transparent 40%);
+  animation: page-hero-bg 14s ease-in-out infinite alternate;
+  z-index: 0;
+}
+@keyframes page-hero-bg {
+  to {
+    background-image:
+      radial-gradient(circle at 80% 30%, rgba(46,139,87,0.10), transparent 40%),
+      radial-gradient(circle at 20% 70%, rgba(168,213,184,0.13), transparent 40%);
+  }
+}
+
+/* ===== 15. БЭДЖИ — мягкое scale + glow по hover ===== */
+.badge {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.badge:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(46,139,87,0.25);
+}
+
+/* ===== 16. CTA SECTION — мерцающее свечение ===== */
+.cta-section {
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    rgba(168,213,184,0.12),
+    transparent 30%
+  );
+  animation: rotate-conic 18s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+.cta-section > * { position: relative; z-index: 1; }
+
+/* ===== 17. AUTHOR AVATAR — пульсирующий ореол ===== */
+.author-avatar {
+  position: relative;
+  z-index: 1;
+}
+.author-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), #A8D5B8);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  filter: blur(12px);
+}
+.author-card:hover .author-avatar::before { opacity: 0.7; }
+
+/* ===== 18. ТАБЛИЦА — мягкая подсветка строки ===== */
+.data-table tbody tr {
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.data-table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(46,139,87,0.10), rgba(168,213,184,0.05)) !important;
+  transform: translateX(4px);
+}
+
+/* ===== 19. RESPECT motion preferences ===== */
+@media (prefers-reduced-motion: reduce) {
+  .bg-orb,
+  .section-alt::after,
+  .page-hero::before,
+  .logo-dot::before,
+  .gradient-text,
+  .btn-primary::before,
+  .forecast-card::before,
+  .cta-section::after,
+  .stat-card::after,
+  .section-title::after,
+  .divider::before,
+  .hero-scroll-line {
+    animation: none !important;
+  }
+}
