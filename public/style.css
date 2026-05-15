@@ -1,7 +1,7 @@
 /* =====================================================
    KazMigra Analytics — Основной стилевой файл
-   Авторы: Аріпбай Арнур / Нуралиев Ерсултан
-   НАО «Университет Нархоз» | 6В06104 — Digital Management and Design
+   Авторы: Ким Виктория / Даирова Мадина
+   НАО «Университет Нархоз» | 6В04102 — Деловое администрирование в области маркетинга
    ===================================================== */
 
 /* ---- Импорт шрифтов ---- */
@@ -84,7 +84,7 @@ body::before {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-glass-border);
-  z-index: 1000;
+  z-index: 2147483647;
   transition: box-shadow var(--transition);
 }
 .site-header.scrolled {
@@ -572,7 +572,7 @@ body::before {
 /* <!-- AI MUSIC COMPONENT — SUNO AI --> */
 .music-player {
   position: fixed;
-  bottom: 24px;
+  bottom: 90px;
   right: 24px;
   z-index: 900;
   background: var(--color-glass-bg);
