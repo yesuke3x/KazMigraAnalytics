@@ -572,8 +572,9 @@ body::before {
 /* <!-- AI MUSIC COMPONENT — SUNO AI --> */
 .music-player {
   position: fixed;
-  bottom: 90px;
-  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  right: auto;
   z-index: 900;
   background: var(--color-glass-bg);
   backdrop-filter: blur(16px);
